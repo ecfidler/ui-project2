@@ -1,3 +1,10 @@
+root {
+  --uc-red: #e00122;
+  --uc-black: black;
+  --uc-white: white;
+}
+
+
 body {
   margin: 0;
   font-family: 'Open-Sans';

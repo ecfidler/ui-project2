@@ -1,11 +1,11 @@
 .uc-red {
-  color: #e00122;
+  color: var(--uc-red);
 }
 
 .uc-black {
-  color: black;
+  color: var(--uc-black);
 }
 
 .uc-white {
-  color: white;
+  color: var(--uc-white);
 }
