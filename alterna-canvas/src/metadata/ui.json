@@ -1,11 +1,11 @@
 ﻿{
-    "Sheet1": [
+    "data": [
         {
             "name": "syllabus.html",
             "folder": "course_info",
             "type": "syllabus",
             "grading": "participation",
-            "points": "na",
+            "points": "0",
             "start_or_posted": "8/15/22",
             "end_or_due": "12/9/22",
             "module": "none",
@@ -21,11 +21,11 @@
             "start_or_posted": "8/22/22",
             "end_or_due": "8/26/22",
             "module": "module1",
-            "title": "Foundations",
+            "title": "Introduction to Usability",
             "reference": "na"
         },
         {
-            "name": "01-01.pptx",
+            "name": "01-01-intro.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -33,11 +33,11 @@
             "start_or_posted": "8/22/22",
             "end_or_due": "8/22/22",
             "module": "module1",
-            "title": "What is computer graphics",
+            "title": "Monday lecture: Intro",
             "reference": "na"
         },
         {
-            "name": "01-02.pptx",
+            "name": "01-02-usability.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -45,11 +45,11 @@
             "start_or_posted": "8/24/22",
             "end_or_due": "8/24/22",
             "module": "module1",
-            "title": "Computer graphics pipeline",
+            "title": "Wednesday lecture: Usability",
             "reference": "na"
         },
         {
-            "name": "01-03.pptx",
+            "name": "01-03-norman-principals-discoverability.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "partitipation",
@@ -57,7 +57,7 @@
             "start_or_posted": "8/26/22",
             "end_or_due": "8/26/22",
             "module": "module1",
-            "title": "Computer graphics hardware",
+            "title": "Friday lecture: Norman Principals",
             "reference": "na"
         },
         {
@@ -69,7 +69,7 @@
             "start_or_posted": "8/15/22",
             "end_or_due": "8/29/22",
             "module": "module1",
-            "title": "first assignment",
+            "title": "Getting to know you",
             "reference": "na"
         },
         {
@@ -81,11 +81,11 @@
             "start_or_posted": "8/29/22",
             "end_or_due": "9/2/22",
             "module": "module2",
-            "title": "Linear algebra",
+            "title": "Human Centered Design",
             "reference": "na"
         },
         {
-            "name": "02-01.pptx",
+            "name": "01-04-the-user-p1.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -93,11 +93,11 @@
             "start_or_posted": "8/29/31",
             "end_or_due": "8/29/31",
             "module": "module2",
-            "title": "Linear algebra p1",
+            "title": "Monday lecture: Human Centered Design 1",
             "reference": "na"
         },
         {
-            "name": "02-02.pptx",
+            "name": "01-05-the-user-p2.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -105,11 +105,11 @@
             "start_or_posted": "8/31/22",
             "end_or_due": "8/31/22",
             "module": "module2",
-            "title": "Linear algebra p2",
+            "title": "Wednesday lecture: Human Centered Design 2",
             "reference": "na"
         },
         {
-            "name": "02_03.pptx",
+            "name": "01-06-the-user-p3.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -117,79 +117,102 @@
             "start_or_posted": "9/2/22",
             "end_or_due": "9/2/22",
             "module": "module2",
-            "title": "Linear algebra p3",
+            "title": "Friday lecture: Human Centered Design 3",
             "reference": "na"
         },
         {
-            "name": "01.html",
+            "name": "module3",
+            "folder": "na",
+            "type": "module",
+            "grading": "na",
+            "start_or_posted": "9/7/22",
+            "end_or_due": "9/7/22",
+            "module": "module3",
+            "title": "Sketching part 1",
+            "reference": "na"
+        },
+        {
+            "name": "project1",
+            "folder": "pages",
+            "type": "na",
+            "grading": "na",
+            "points": "na",
+            "start_or_posted": "9/7/22",
+            "end_or_due": "10/16/22",
+            "module": "na",
+            "title": "Smart Object ",
+            "reference": "na"
+        },
+        {
+            "name": "03-01-sketching-p1.pptx",
+            "folder": "presentations",
+            "type": "lecture",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/7/22",
+            "end_or_due": "9/7/22",
+            "module": "module3",
+            "title": "Sketching for Brainstorming",
+            "reference": "na"
+        },
+        {
+            "name": "inclass_01.html",
             "folder": "pages",
             "type": "inclass",
             "grading": "participation",
             "points": "1",
-            "start_or_posted": "8/29/31",
-            "end_or_due": "8/29/31",
-            "module": "module2",
-            "title": "Intro",
+            "start_or_posted": "9/7/22",
+            "end_or_due": "9/7/22",
+            "module": "module3",
+            "title": "Sketching practice 1",
             "reference": "na"
         },
         {
-            "name": "02.html",
+            "name": "inclass_02.html",
             "folder": "pages",
             "type": "inclass",
             "grading": "participation",
             "points": "1",
-            "start_or_posted": "8/29/31",
-            "end_or_due": "8/29/31",
-            "module": "module2",
-            "title": "Vectors",
+            "start_or_posted": "9/7/22",
+            "end_or_due": "9/7/22",
+            "module": "module3",
+            "title": "Sketching practice 2",
             "reference": "na"
         },
         {
-            "name": "03.html",
+            "name": "inclass_03.html",
             "folder": "pages",
             "type": "inclass",
             "grading": "participation",
             "points": "1",
-            "start_or_posted": "8/31/22",
-            "end_or_due": "8/31/22",
-            "module": "module2",
-            "title": "Span",
+            "start_or_posted": "9/7/22",
+            "end_or_due": "9/7/22",
+            "module": "module3",
+            "title": "Sketching practice 3",
             "reference": "na"
         },
         {
-            "name": "04.html",
+            "name": "03-02-sketching-p2.pptx",
+            "folder": "presentations",
+            "type": "lecture",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/9/22",
+            "end_or_due": "9/9/22",
+            "module": "module3",
+            "title": "Sketching the Interface",
+            "reference": "na"
+        },
+        {
+            "name": "inclass_04.html",
             "folder": "pages",
             "type": "inclass",
             "grading": "participation",
             "points": "1",
-            "start_or_posted": "8/31/22",
-            "end_or_due": "8/31/22",
-            "module": "module2",
-            "title": "Linear Transformations",
-            "reference": "na"
-        },
-        {
-            "name": "05.html",
-            "folder": "pages",
-            "type": "inclass",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/2/22",
-            "end_or_due": "9/2/22",
-            "module": "module2",
-            "title": "Matrix Multiplication",
-            "reference": "na"
-        },
-        {
-            "name": "06.html",
-            "folder": "pages",
-            "type": "inclass",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/2/22",
-            "end_or_due": "9/2/22",
-            "module": "module2",
-            "title": "3D transformations",
+            "start_or_posted": "9/9/22",
+            "end_or_due": "9/9/22",
+            "module": "module3",
+            "title": "Sketching the interface practice",
             "reference": "na"
         },
         {
@@ -198,119 +221,11 @@
             "type": "assignment",
             "grading": "assignment",
             "points": "10",
-            "start_or_posted": "9/2/22",
-            "end_or_due": "9/9/22",
-            "module": "module2",
-            "title": "Linear algebra review",
-            "reference": "na"
-        },
-        {
-            "name": "module3",
-            "folder": "na",
-            "type": "module",
-            "grading": "na",
-            "points": "na",
             "start_or_posted": "9/7/22",
-            "end_or_due": "9/7/22",
+            "end_or_due": "9/16/22",
             "module": "module3",
-            "title": "Rasterization",
-            "reference": "na"
-        },
-        {
-            "name": "03-01.pptx",
-            "folder": "presentations",
-            "type": "lecture",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/7/22",
-            "end_or_due": "9/7/22",
-            "module": "module3",
-            "title": "How to draw lines",
-            "reference": "na"
-        },
-        {
-            "name": "03-02.pptx",
-            "folder": "presentations",
-            "type": "lecture",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/9/22",
-            "end_or_due": "9/9/22",
-            "module": "module3",
-            "title": "How to draw shapes",
-            "reference": "na"
-        },
-        {
-            "name": "07.html",
-            "folder": "pages",
-            "type": "inclass",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/7/22",
-            "end_or_due": "9/7/22",
-            "module": "module3",
-            "title": "Determinant",
-            "reference": "na"
-        },
-        {
-            "name": "08.html",
-            "folder": "pages",
-            "type": "inclass",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/7/22",
-            "end_or_due": "9/7/22",
-            "module": "module3",
-            "title": "Inverse Matrices",
-            "reference": "na"
-        },
-        {
-            "name": "09.html",
-            "folder": "pages",
-            "type": "inclass",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/7/22",
-            "end_or_due": "9/7/22",
-            "module": "module3",
-            "title": "Nonsquare Marices",
-            "reference": "na"
-        },
-        {
-            "name": "10.html",
-            "folder": "pages",
-            "type": "inclass",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/9/22",
-            "end_or_due": "9/9/22",
-            "module": "module3",
-            "title": "Dot Product",
-            "reference": "na"
-        },
-        {
-            "name": "11.html",
-            "folder": "pages",
-            "type": "inclass",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/9/22",
-            "end_or_due": "9/9/22",
-            "module": "module3",
-            "title": "Cross product",
-            "reference": "na"
-        },
-        {
-            "name": "12.html",
-            "folder": "pages",
-            "type": "inclass",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/9/22",
-            "end_or_due": "9/9/22",
-            "module": "module3",
-            "title": "Cross product",
-            "reference": "na"
+            "title": "Sketching practice",
+            "reference": "inclass_01.html,inclass_02.html,inclass_03.html,inclass_04.html"
         },
         {
             "name": "assignment_03.html",
@@ -321,8 +236,8 @@
             "start_or_posted": "9/9/22",
             "end_or_due": "9/26/22",
             "module": "module3",
-            "title": "Rasterization exercise",
-            "reference": "na"
+            "title": "Project 1 check in",
+            "reference": "project1.html"
         },
         {
             "name": "module4",
@@ -333,11 +248,10 @@
             "start_or_posted": "9/12/22",
             "end_or_due": "9/16/22",
             "module": "module4",
-            "title": "Transformations",
-            "reference": "na"
+            "title": "Html and CSS"
         },
         {
-            "name": "04-01.pptx",
+            "name": "04-01-web-p1.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -345,11 +259,43 @@
             "start_or_posted": "9/12/22",
             "end_or_due": "9/12/22",
             "module": "module4",
-            "title": "Transformations p1",
-            "reference": "na"
+            "title": "The Web"
         },
         {
-            "name": "04-02.pptx",
+            "name": "tutorial0.html",
+            "folder": "pages",
+            "type": "tutorial",
+            "grading": "partitipation",
+            "points": "1",
+            "start_or_posted": "9/12/22",
+            "end_or_due": "9/12/22",
+            "module": "module4",
+            "title": "The Web tutorial"
+        },
+        {
+            "name": "tutorial1.html",
+            "folder": "pages",
+            "type": "tutorial",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/12/22",
+            "end_or_due": "9/12/22",
+            "module": "module4",
+            "title": "HTML tutorial"
+        },
+        {
+            "name": "inclass_05.html",
+            "folder": "pages",
+            "type": "inclass",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/12/22",
+            "end_or_due": "9/12/22",
+            "module": "module4",
+            "title": "HTML practice"
+        },
+        {
+            "name": "04-02-html-css.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -357,47 +303,21 @@
             "start_or_posted": "9/14/22",
             "end_or_due": "9/14/22",
             "module": "module4",
-            "title": "Transformations p2",
-            "reference": "na"
+            "title": "HTML"
         },
         {
-            "name": "04-03.pptx",
-            "folder": "presentations",
-            "type": "lecture",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/16/22",
-            "end_or_due": "9/16/22",
-            "module": "module4",
-            "title": "Transformations p3",
-            "reference": "na"
-        },
-        {
-            "name": "13.html",
+            "name": "tutorial2.html",
             "folder": "pages",
-            "type": "inclass",
+            "type": "tutorial",
             "grading": "participation",
             "points": "1",
-            "start_or_posted": "9/12/22",
-            "end_or_due": "9/12/22",
+            "start_or_posted": "9/14/22",
+            "end_or_due": "9/14/22",
             "module": "module4",
-            "title": "Cross product as transformation",
-            "reference": "na"
+            "title": "CSS tutorial"
         },
         {
-            "name": "14.html",
-            "folder": "pages",
-            "type": "inclass",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/12/22",
-            "end_or_due": "9/12/22",
-            "module": "module4",
-            "title": "Cramer's rule",
-            "reference": "na"
-        },
-        {
-            "name": "15.html",
+            "name": "inclass_06.html",
             "folder": "pages",
             "type": "inclass",
             "grading": "participation",
@@ -405,11 +325,21 @@
             "start_or_posted": "9/14/22",
             "end_or_due": "9/14/22",
             "module": "module4",
-            "title": "Change of bias",
-            "reference": "na"
+            "title": "HTML practice"
         },
         {
-            "name": "16.html",
+            "name": "04-03-css.pptx",
+            "folder": "presentations",
+            "type": "lecture",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/16/22",
+            "end_or_due": "9/16/22",
+            "module": "module4",
+            "title": "CSS"
+        },
+        {
+            "name": "inclass_07.html",
             "folder": "pages",
             "type": "inclass",
             "grading": "participation",
@@ -417,8 +347,7 @@
             "start_or_posted": "9/16/22",
             "end_or_due": "9/16/22",
             "module": "module4",
-            "title": "Eigenvectors",
-            "reference": "na"
+            "title": "HTML practice"
         },
         {
             "name": "assignment_04.html",
@@ -429,23 +358,21 @@
             "start_or_posted": "9/16/22",
             "end_or_due": "9/23/22",
             "module": "module4",
-            "title": "Transformations exercise",
-            "reference": "na"
+            "title": "Html and CSS practice",
+            "reference": "inclass_05.html,inclass_06.html,inclass_07.html"
         },
         {
             "name": "module5",
             "folder": "na",
             "type": "module",
             "grading": "na",
-            "points": "na",
             "start_or_posted": "9/19/22",
             "end_or_due": "9/23/22",
             "module": "module5",
-            "title": "Projection",
-            "reference": "na"
+            "title": "Javascript"
         },
         {
-            "name": "05-01.pptx",
+            "name": "05-01-javascript-p1.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -453,11 +380,43 @@
             "start_or_posted": "9/19/22",
             "end_or_due": "9/19/22",
             "module": "module5",
-            "title": "Projection p1",
-            "reference": "na"
+            "title": "Javascript"
         },
         {
-            "name": "05-02.pptx",
+            "name": "tutorial3.html",
+            "folder": "pages",
+            "type": "tutorial",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/19/22",
+            "end_or_due": "9/19/22",
+            "module": "module5",
+            "title": "Web server"
+        },
+        {
+            "name": "tutorial4.html",
+            "folder": "pages",
+            "type": "tutorial",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/19/22",
+            "end_or_due": "9/19/22",
+            "module": "module5",
+            "title": "Javascript part 1"
+        },
+        {
+            "name": "inclass_08.html",
+            "folder": "pages",
+            "type": "inclass",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/19/22",
+            "end_or_due": "9/19/22",
+            "module": "module5",
+            "title": "Javascript practice"
+        },
+        {
+            "name": "05-02-javascript-p2.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -465,11 +424,32 @@
             "start_or_posted": "9/21/22",
             "end_or_due": "9/21/22",
             "module": "module5",
-            "title": "Projection p2",
-            "reference": "na"
+            "title": "Javascript part 2"
         },
         {
-            "name": "05-03.pptx",
+            "name": "tutorial5.html",
+            "folder": "pages",
+            "type": "tutorial",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/21/22",
+            "end_or_due": "9/21/22",
+            "module": "module5",
+            "title": "Javacript part 2"
+        },
+        {
+            "name": "inclass_09.html",
+            "folder": "pages",
+            "type": "inclass",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/21/22",
+            "end_or_due": "9/21/22",
+            "module": "module5",
+            "title": "Javascript practice 2"
+        },
+        {
+            "name": "05-03-javascript-p3.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -477,8 +457,18 @@
             "start_or_posted": "9/23/22",
             "end_or_due": "9/23/22",
             "module": "module5",
-            "title": "Projection p3",
-            "reference": "na"
+            "title": "Javascript"
+        },
+        {
+            "name": "inclass_10.html",
+            "folder": "pages",
+            "type": "inclass",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/23/22",
+            "end_or_due": "9/23/22",
+            "module": "module5",
+            "title": "Javascript practice 3"
         },
         {
             "name": "assignment_05.html",
@@ -489,56 +479,8 @@
             "start_or_posted": "9/23/22",
             "end_or_due": "9/30/22",
             "module": "module5",
-            "title": "Projection exercises",
-            "reference": "na"
-        },
-        {
-            "name": "module6",
-            "folder": "na",
-            "type": "module",
-            "grading": "na",
-            "points": "na",
-            "start_or_posted": "9/26/22",
-            "end_or_due": "9/30/22",
-            "module": "module6",
-            "title": "Texture mapping",
-            "reference": "na"
-        },
-        {
-            "name": "06-01.pptx",
-            "folder": "presentations",
-            "type": "lecture",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/26/22",
-            "end_or_due": "9/26/22",
-            "module": "module6",
-            "title": "Texture mapping",
-            "reference": "na"
-        },
-        {
-            "name": "06-02.pptx",
-            "folder": "presentations",
-            "type": "lecture",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/28/22",
-            "end_or_due": "9/28/22",
-            "module": "module6",
-            "title": "Texture mapping",
-            "reference": "na"
-        },
-        {
-            "name": "06-03.pptx",
-            "folder": "presentations",
-            "type": "lecture",
-            "grading": "participation",
-            "points": "1",
-            "start_or_posted": "9/30/22",
-            "end_or_due": "9/30/22",
-            "module": "module6",
-            "title": "Texture mapping",
-            "reference": "na"
+            "title": "Javascript practice",
+            "reference": "inclass_08.html,inclass_09.html,inclass_10.html"
         },
         {
             "name": "assignment_06.html",
@@ -546,26 +488,99 @@
             "type": "assignment",
             "grading": "assignment",
             "points": "10",
-            "start_or_posted": "9/30/22",
-            "end_or_due": "10/5/22",
+            "start_or_posted": "9/19/22",
+            "end_or_due": "9/23/22",
+            "module": "na",
+            "title": "Which smart object project 1"
+        },
+        {
+            "name": "module6",
+            "folder": "na",
+            "type": "module",
+            "grading": "na",
+            "start_or_posted": "9/26/22",
+            "end_or_due": "9/30/22",
+            "module": "module6",
+            "title": "Design Principles"
+        },
+        {
+            "name": "06-01-design-principles-p1.pptx",
+            "folder": "presentations",
+            "type": "lecture",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/26/22",
+            "end_or_due": "9/26/22",
+            "module": "module6",
+            "title": "Design 1"
+        },
+        {
+            "name": "inclass_10.html",
+            "folder": "pages",
+            "type": "inclass",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/26/22",
+            "end_or_due": "9/26/22",
             "module": "module5",
-            "title": "Texture mapping exercises",
-            "reference": "na"
+            "title": "Simplicity"
+        },
+        {
+            "name": "06-02-design-principles-p2.pptx",
+            "folder": "presentations",
+            "type": "lecture",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/28/22",
+            "end_or_due": "9/28/22",
+            "module": "module6",
+            "title": "Design 2"
+        },
+        {
+            "name": "inclass_11.html",
+            "folder": "pages",
+            "type": "inclass",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/28/22",
+            "end_or_due": "9/28/22",
+            "module": "module5",
+            "title": "Layout"
+        },
+        {
+            "name": "06-03-design-principles-color.pptx",
+            "folder": "presentations",
+            "type": "lecture",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/30/22",
+            "end_or_due": "9/30/22",
+            "module": "module6",
+            "title": "Design 3"
+        },
+        {
+            "name": "inclass_12.html",
+            "folder": "pages",
+            "type": "inclass",
+            "grading": "participation",
+            "points": "1",
+            "start_or_posted": "9/30/22",
+            "end_or_due": "9/30/22",
+            "module": "module5",
+            "title": "Color"
         },
         {
             "name": "module7",
             "folder": "na",
             "type": "module",
             "grading": "na",
-            "points": "na",
             "start_or_posted": "10/3/22",
             "end_or_due": "10/14/22",
             "module": "module7",
-            "title": "Color",
-            "reference": "na"
+            "title": "People"
         },
         {
-            "name": "07-02.pptx",
+            "name": "07-02-people.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -573,11 +588,10 @@
             "start_or_posted": "10/3/22",
             "end_or_due": "10/3/22",
             "module": "module7",
-            "title": "Color",
-            "reference": "na"
+            "title": "People 1"
         },
         {
-            "name": "07-03.pptx",
+            "name": "07-03-people.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
@@ -585,80 +599,53 @@
             "start_or_posted": "10/5/22",
             "end_or_due": "10/5/22",
             "module": "module7",
-            "title": "Color",
-            "reference": "na"
+            "title": "People 2"
         },
         {
-            "name": "assignment_07.html",
-            "folder": "assignment",
-            "type": "assifgnment",
-            "grading": "assignment",
-            "points": "10",
-            "start_or_posted": "10/5/22",
-            "end_or_due": "10/14/22",
-            "module": "na",
-            "title": "Color",
-            "reference": "na"
-        },
-        {
-            "name": "module8",
-            "folder": "na",
-            "type": "module",
-            "grading": "na",
-            "points": "na",
-            "start_or_posted": "10/12/22",
-            "end_or_due": "10/16/22",
-            "module": "module8",
-            "title": "Light and shadow",
-            "reference": "na"
-        },
-        {
-            "name": "08-02.pptx",
+            "name": "08-02-people.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
             "points": "1",
             "start_or_posted": "10/12/22",
             "end_or_due": "10/12/22",
-            "module": "module8",
-            "title": "Light and shador",
-            "reference": "na"
+            "module": "module7",
+            "title": "People 3"
         },
         {
-            "name": "08-03.pptx",
+            "name": "08-03-people.pptx",
             "folder": "presentations",
             "type": "lecture",
             "grading": "participation",
             "points": "1",
             "start_or_posted": "10/14/22",
             "end_or_due": "10/14/22",
-            "module": "module8",
-            "title": "Light and shadow",
-            "reference": "na"
+            "module": "module7",
+            "title": "People 4"
         },
         {
-            "name": "assignment08.html",
+            "name": "07.html",
             "folder": "assignment",
-            "type": "assignment",
-            "grading": "assignment",
-            "points": "10",
-            "start_or_posted": "10/14/22",
-            "end_or_due": "10/26/22",
-            "module": "module8",
-            "title": "Light and shadow",
-            "reference": "na"
+            "type": "project",
+            "grading": "project",
+            "points": "50",
+            "start_or_posted": "9/7/22",
+            "end_or_due": "10/14/22",
+            "module": "na",
+            "title": "Project 1 implementation",
+            "reference": "project1.html,assignment_03.html"
         },
         {
-            "name": "midterm.html",
-            "folder": "exams",
-            "type": "exams",
-            "grading": "exams",
-            "points": "100",
-            "start_or_posted": "10/26/22",
-            "end_or_due": "10/26/22",
-            "module": "module8",
-            "title": "Midterm exam",
-            "reference": "na"
+            "name": "08.html",
+            "folder": "assignment",
+            "type": "project",
+            "grading": "project",
+            "points": "40",
+            "start_or_posted": "9/7/22",
+            "end_or_due": "10/16/22",
+            "module": "na",
+            "title": "Project 1 documentation",
+            "reference": "project1.html,assignment_03.html,07.html"
         }
     ]
 }

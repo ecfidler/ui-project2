@@ -13,9 +13,9 @@ function App() {
                 Your class List
             </h1>
             <Stack direction="row" spacing={2}>
-                <ClassInfo classLink="/class/one" />
-                <ClassInfo classLink="/class/two" />
-                <ClassInfo classLink="/class/three" />
+                <ClassInfo classLink="/class/ui" />
+                <ClassInfo classLink="/class/senior-design" />
+                <ClassInfo classLink="/class/computer-graphics" />
             </Stack>
 
             <Chat />
