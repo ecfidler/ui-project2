@@ -2,14 +2,20 @@ import * as React from "react";
 
 import { useParams } from "react-router-dom";
 
+import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import TabPanel from "@mui/lab";
+
+import { TabPanel, a11yProps } from "./TabPanel";
 
 import data from "../metadata/unified.json";
+import AssignmentsTab from "./Assignments/AssignmentsTab";
+
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "../theme";
 
 function ClassPage() {
-    const [tabValue, setValue] = React.useState(0);
+    const [value, setValue] = React.useState(0);
     const { name } = useParams();
     const classData = data[name];
 
@@ -18,39 +24,41 @@ function ClassPage() {
     };
 
     return (
-        <div className="class-page">
-            <h1>Class page: {name}</h1>
-            <Tabs
-                orientation="vertical"
-                variant="fullWidth"
-                value={tabValue}
-                onChange={handleTabChange}
-                aria-label="Vertical tabs example"
-                sx={{ borderRight: 1, borderColor: "divider" }}
-            >
-                <Tab label="Assignments" value="assignments" />
-                <Tab label="Announcements" value="annoucements" />
-                <Tab label="Grades" value="grades" />
-                <Tab label="Course Materials" value="course-materials" />
-                <Tab label="Syllabus" value="syllabus" />
-                <Tab label="Zoom" value="zoom" />
-            </Tabs>
+        <div className="class-page" style={{ margin: "0 5% 0 5%" }}>
+            <ThemeProvider theme={theme}>
+                <h1>Class page: {classData.className}</h1>
+                <Box sx={{ display: "flex", flexDirection: "row" }}>
+                    <Tabs
+                        orientation="vertical"
+                        variant="standard"
+                        value={value}
+                        onChange={handleTabChange}
+                        aria-label="Class Sections Tabs"
+                        sx={{
+                            borderRight: 1,
+                            borderColor: "divider",
+                            width: `15%`,
+                        }}
+                    >
+                        <Tab label="Assignments" {...a11yProps(0)} />
+                        <Tab label="Announcements" {...a11yProps(1)} />
+                        <Tab label="Grades" {...a11yProps(2)} />
+                        <Tab label="Course Materials" {...a11yProps(3)} />
+                        <Tab label="Syllabus" {...a11yProps(4)} />
+                        <Tab label="Zoom" {...a11yProps(5)} />
+                    </Tabs>
+                    <TabPanel value={value} index={0}>
+                        <AssignmentsTab data={classData.data} />
+                    </TabPanel>
+                    <TabPanel value={value} index={1}></TabPanel>
+                    <TabPanel value={value} index={2}></TabPanel>
+                    <TabPanel value={value} index={3}></TabPanel>
+                    <TabPanel value={value} index={4}></TabPanel>
+                    <TabPanel value={value} index={5}></TabPanel>
+                </Box>
+            </ThemeProvider>
         </div>
     );
 }
 
 export default ClassPage;
-
-/* List all assignments code example
-{classData.map((item, i) => {
-    return (
-        item.type === "assignment" && (
-            <tr key={i}>
-                <td>{item.title}</td>
-                <td>Due: {item.end_or_due}</td>
-            </tr>
-        )
-    );
-})}
-
-*/
