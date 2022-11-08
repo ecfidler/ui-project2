@@ -1,5 +1,10 @@
 import { createTheme } from "@mui/material/styles";
 
+/*
+for more customization
+https://mui.com/material-ui/customization/palette/
+*/
+
 const theme = createTheme({
     palette: {
         primary: {
