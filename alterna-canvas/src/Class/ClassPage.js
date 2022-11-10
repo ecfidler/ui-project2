@@ -37,7 +37,7 @@ function ClassPage() {
                         sx={{
                             borderRight: 1,
                             borderColor: "divider",
-                            width: `15%`,
+                            width: `16%`,
                         }}
                     >
                         <Tab label="Assignments" {...a11yProps(0)} />
@@ -47,14 +47,16 @@ function ClassPage() {
                         <Tab label="Syllabus" {...a11yProps(4)} />
                         <Tab label="Zoom" {...a11yProps(5)} />
                     </Tabs>
-                    <TabPanel value={value} index={0}>
-                        <AssignmentsTab data={classData.data} />
-                    </TabPanel>
-                    <TabPanel value={value} index={1}></TabPanel>
-                    <TabPanel value={value} index={2}></TabPanel>
-                    <TabPanel value={value} index={3}></TabPanel>
-                    <TabPanel value={value} index={4}></TabPanel>
-                    <TabPanel value={value} index={5}></TabPanel>
+                    <Box sx={{ width: `80%` }}>
+                        <TabPanel value={value} index={0}>
+                            <AssignmentsTab data={classData.data} />
+                        </TabPanel>
+                        <TabPanel value={value} index={1}></TabPanel>
+                        <TabPanel value={value} index={2}></TabPanel>
+                        <TabPanel value={value} index={3}></TabPanel>
+                        <TabPanel value={value} index={4}></TabPanel>
+                        <TabPanel value={value} index={5}></TabPanel>
+                    </Box>
                 </Box>
             </ThemeProvider>
         </div>
