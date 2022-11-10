@@ -7,9 +7,7 @@ function Chat() {
     const inputRef = useRef(null);
     const mainBody = useRef(null);
 
-    let chatData = [{user:"Etan", avatar:null, content:"Piss", file:null}, {user:"Me", avatar:null, content:"Poor", file:null}];
-
-    const [data, setData] = useState(chatData);
+    const [chatData, setData] = useState([{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}]);
 
     const clickPress = (event) => {
         if (event.key === "Enter") {
@@ -19,9 +17,9 @@ function Chat() {
 
     const updateChatWindow = () => {
         let tempText = inputRef.current.value;
-        let tmp = chatData.concat([{user:"Me", avatar:null, content:tempText, file:null}]);
 
-        setData(tmp);
+        let msg = {user:"Me", avatar:null, content:tempText, file:null};
+        setData([...chatData, msg]);
 
         console.log(tempText);
         inputRef.current.value = ""; // reset text field
@@ -72,11 +70,17 @@ function Chat() {
                     <button style={{ float: "right" }}>X</button>
                 </div>
 
-                <div style={{ padding: "5px", overflowY:"auto"}} ref={mainBody}>
+                <div style={{ padding: "5px", overflowY:"auto", display: "flex", flexDirection: "column", alignItems:"flex-start"}} ref={mainBody}>
                     {
                         chatData.map((data, index) => {
+                            let wordStyle = {backgroundColor:"silver", borderRadius:"10px", marginBottom: "4px"}
+                            if (data.user == "Me") {
+                                wordStyle.alignSelf = "flex-end"
+                            }
                             return (
-                                <p key={index}>{data.content}</p>
+                                <div style={wordStyle}>
+                                    <p key={index} style={{margin:"10px"}}>{data.content}</p>
+                                </div>
                             )
                         })
                     }
