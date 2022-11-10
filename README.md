@@ -8,5 +8,5 @@ Project 2: Alterna-Canvas for User Interfaces 6067
 
 ### to run
 
-`npm react-script run`
+`npm run-script start`
 (don't forget to `cd alterna-canvas` first)
