@@ -8,6 +8,7 @@ import "./index.css";
 import RootLayout from "./Root/rootLayout";
 import ClassPage from "./Class/ClassPage";
 import ErrorClassPage from "./Class/ErrorClassPage";
+import ItemPage from "./Class/Item/ItemPage";
 
 import App from "./App";
 
@@ -22,8 +23,19 @@ const router = createBrowserRouter([
             },
             {
                 path: "/class/:name",
-                element: <ClassPage />,
                 errorElement: <ErrorClassPage />,
+                children: [
+                    {
+                        path: "/class/:name",
+                        element: <ClassPage />,
+                        errorElement: <ErrorClassPage />,
+                    },
+                    {
+                        path: "/class/:name/item/:index",
+                        element: <ItemPage />,
+                        errorElement: <ErrorClassPage />,
+                    },
+                ],
             },
         ],
     },

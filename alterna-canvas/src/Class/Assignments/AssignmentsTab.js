@@ -7,12 +7,19 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
+import { useNavigate } from "react-router-dom";
+
 export default function AssignmentsTab({ data }) {
+    const navigate = useNavigate();
+
     const assignments = data
         .filter((item) => item.type === "assignment")
         .sort((a, b) => {
             return Date.parse(a.end_or_due) - Date.parse(b.end_or_due);
         });
+    assignments.forEach((a) => {
+        a.index = data.indexOf(a);
+    });
     const date = new Date("9/15/22");
 
     function howSoonDue(dueDateString) {
@@ -27,6 +34,11 @@ export default function AssignmentsTab({ data }) {
         } else {
             return "green";
         }
+    }
+
+    function viewItem(idx) {
+        navigate(`./item/${idx}`);
+        console.log("handled");
     }
 
     return (
@@ -64,9 +76,16 @@ export default function AssignmentsTab({ data }) {
                             <Typography>
                                 Assigned: {item.start_or_posted}
                             </Typography>
-                            <Typography>Due: {item.end_or_due}</Typography>
+                            <Typography>
+                                Due: {item.end_or_due} 11:59PM
+                            </Typography>
                             <Typography>Points: {item.points}</Typography>
-                            <Button variant="outlined">View Assignment</Button>
+                            <Button
+                                variant="outlined"
+                                onClick={() => viewItem(item.index)}
+                            >
+                                View Assignment
+                            </Button>
                         </AccordionDetails>
                     </Accordion>
                 );

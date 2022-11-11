@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import Button from "@mui/material/Button";
 
 import { TabPanel, a11yProps } from "./TabPanel";
 
@@ -14,7 +15,11 @@ import AssignmentsTab from "./Assignments/AssignmentsTab";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 
+import { useNavigate } from "react-router-dom";
+
 function ClassPage() {
+    const navigate = useNavigate();
+
     const [value, setValue] = React.useState(0);
     const { name } = useParams();
     const classData = data[name];
@@ -23,10 +28,21 @@ function ClassPage() {
         setValue(newValue);
     };
 
+    function backButton() {
+        navigate(-1);
+    }
+
     return (
         <div className="class-page" style={{ margin: "0 5% 0 5%" }}>
             <ThemeProvider theme={theme}>
-                <h1>Class page: {classData.className}</h1>
+                <h1>{classData.className}</h1>
+                <Button
+                    sx={{ margin: `0 auto 1em 3.5em` }}
+                    variant="contained"
+                    onClick={backButton}
+                >
+                    Back to Dashboard
+                </Button>
                 <Box sx={{ display: "flex", flexDirection: "row" }}>
                     <Tabs
                         orientation="vertical"
