@@ -5,9 +5,15 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import data from "./metadata/unified.json";
-import Draggable from "./Chat"
+import ChatModule from "./Chat/chatModule";
 
 export default function ControlledAccordions() {
+
+    let class1Data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
+    let class2Data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
+    let class3Data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
+    
+
     const [expanded, setExpanded] = React.useState(false);
     const classData = data["ui"]['data'];
 
@@ -80,7 +86,7 @@ export default function ControlledAccordions() {
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Draggable />
+                    <ChatModule data={class1Data} />
                 </AccordionDetails>
             </Accordion>
         </div>
