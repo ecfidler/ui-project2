@@ -7,28 +7,54 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
+import { useNavigate } from "react-router-dom";
+
 export default function AssignmentsTab({ data }) {
-    const assignments = data.filter((item) => item.type === "assignment");
-    const date = new Date("10/13/22");
+    const navigate = useNavigate();
+
+    const assignments = data
+        .filter((item) => item.type === "assignment")
+        .sort((a, b) => {
+            return Date.parse(a.end_or_due) - Date.parse(b.end_or_due);
+        });
+    assignments.forEach((a) => {
+        a.index = data.indexOf(a);
+    });
+    const date = new Date("9/15/22");
 
     function howSoonDue(dueDateString) {
         const dueDate = new Date(dueDateString);
-        console.log(dueDate);
-        console.log(date);
+        const msTilldue = dueDate - date;
+        // all these calculations are in ms, sorry
+        if (msTilldue < 86400000) {
+            return "red";
+        }
+        if (msTilldue < 86400000 * 2) {
+            return "orange";
+        } else {
+            return "green";
+        }
+    }
 
-        return "text.secondary";
+    function viewItem(idx) {
+        navigate(`./item/${idx}`);
+        console.log("handled");
     }
 
     return (
         <>
             <Box sx={{ display: "flex" }}>
                 <Typography
-                    sx={{ width: "40%", flexShrink: 0, display: "flex" }}
-                    variant="h5"
+                    sx={{
+                        width: "40%",
+                        flexShrink: 0,
+                        display: "flex",
+                        fontSize: "1.5em",
+                    }}
                 >
                     Assignment
                 </Typography>
-                <Typography sx={{ display: "inline" }} variant="h5">
+                <Typography sx={{ display: "inline", fontSize: "1.5em" }}>
                     Due-Date
                 </Typography>
             </Box>
@@ -50,13 +76,16 @@ export default function AssignmentsTab({ data }) {
                             <Typography>
                                 Assigned: {item.start_or_posted}
                             </Typography>
-                            <Typography>Points: {item.points}</Typography>
-                            <Typography gutterBottom="true">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit amet blandit leo lobortis eget.
+                            <Typography>
+                                Due: {item.end_or_due} 11:59PM
                             </Typography>
-                            <Button variant="outlined">View Assignment</Button>
+                            <Typography>Points: {item.points}</Typography>
+                            <Button
+                                variant="outlined"
+                                onClick={() => viewItem(item.index)}
+                            >
+                                View Assignment
+                            </Button>
                         </AccordionDetails>
                     </Accordion>
                 );

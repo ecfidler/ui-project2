@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import RootFooter from "./rootFooter";
+// import Chat from "../Chat";
 
 function RootLayout() {
     return (
