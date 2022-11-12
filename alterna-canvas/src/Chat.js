@@ -74,7 +74,7 @@ function Chat() {
                     {
                         chatData.map((data, index) => {
                             let wordStyle = {backgroundColor:"silver", borderRadius:"10px", marginBottom: "4px", maxWidth:"100%"}
-                            if (data.user == "Me") {
+                            if (data.user === "Me") {
                                 wordStyle.alignSelf = "flex-end"
                             }
                             return (
