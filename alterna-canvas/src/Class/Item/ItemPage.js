@@ -1,17 +1,25 @@
+import * as React from "react";
+
 import { useParams } from "react-router-dom";
 
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+// import DialogActions from "@mui/material/DialogActions";
+// import DialogContentText from "@mui/material/DialogContentText";
 
 import DownloadIcon from "@mui/icons-material/Download";
+import PreviewIcon from "@mui/icons-material/Preview";
 
 import data from "../../metadata/unified.json";
 
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../theme";
-
-// import "../../course-data/computer_graphics/assignments/";
 
 import { useNavigate } from "react-router-dom";
 
@@ -33,6 +41,54 @@ function DownloadButton({ path, fileName }) {
         >
             Download {fileName}
         </Button>
+    );
+}
+
+function ViewButton({ path, itemName }) {
+    const [open, setOpen] = React.useState(false);
+    // const [scroll, setScroll] = React.useState("paper");
+
+    const handleClickOpen = () => {
+        setOpen(true);
+        // setScroll("paper");
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    return (
+        <>
+            <Button
+                variant="contained"
+                size="large"
+                onClick={handleClickOpen}
+                startIcon={<PreviewIcon />}
+            >
+                Preview Item
+            </Button>
+            <Dialog
+                fullWidth={true}
+                maxWidth={"lg"}
+                open={open}
+                onClose={handleClose}
+                scroll={"paper"}
+            >
+                <DialogTitle>Previewing "{itemName}"</DialogTitle>
+                <DialogContent> {path} asdf</DialogContent>
+                <Box sx={{ padding: `1em`, height: `500px` }}>
+                    <iframe
+                        title="filePreview"
+                        src={path}
+                        style={{
+                            width: "1px",
+                            minWidth: "100%",
+                            height: `100%`,
+                        }}
+                    />
+                </Box>
+            </Dialog>
+        </>
     );
 }
 
@@ -60,10 +116,8 @@ export default function ItemPage() {
                     </Button>
                     <Box
                         sx={{
-                            border: `4px solid gray`,
-                            borderRadius: `6px`,
                             padding: `1em`,
-                            boxShadow: `2px 2px 8px`,
+                            boxShadow: `0px 0px 10px`,
                         }}
                     >
                         {(itemData.type === "assignment" ||
@@ -82,10 +136,16 @@ export default function ItemPage() {
                                 <Typography>
                                     Points: {itemData.points}
                                 </Typography>
-                                <DownloadButton
-                                    path={url}
-                                    fileName={itemData.name}
-                                />
+                                <Stack direction="row" spacing={1}>
+                                    <ViewButton
+                                        path={url}
+                                        itemName={itemData.title}
+                                    />
+                                    <DownloadButton
+                                        path={url}
+                                        fileName={itemData.name}
+                                    />
+                                </Stack>
                             </>
                         )}
                         {(itemData.type === "lecture" ||
