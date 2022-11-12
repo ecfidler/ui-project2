@@ -166,20 +166,38 @@ function SubmitAssignmentButton({ onSubmission }) {
 function SubmittedStatus({ status, late = false }) {
     if (status) {
         return (
-            <Typography>
-                Submitted: <CheckIcon />
+            <Typography
+                sx={{
+                    verticalAlign: "baseline",
+                    display: "inline-flex",
+                    color: "green",
+                }}
+            >
+                Submitted <CheckIcon fontSize="small" />
             </Typography>
         );
     } else if (status && late) {
         return (
-            <Typography>
-                Submitted: <CheckIcon /> (Late)
+            <Typography
+                sx={{
+                    verticalAlign: "baseline",
+                    display: "inline-flex",
+                    color: "orange",
+                }}
+            >
+                Submitted <CheckIcon fontSize="small" color="orange" /> (Late)
             </Typography>
         );
     } else {
         return (
-            <Typography>
-                Submitted: <DoNotDisturbIcon />
+            <Typography
+                sx={{
+                    verticalAlign: "baseline",
+                    display: "inline-flex",
+                    color: "red",
+                }}
+            >
+                Submitted <DoNotDisturbIcon fontSize="small" />
             </Typography>
         );
     }
