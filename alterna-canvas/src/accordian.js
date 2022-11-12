@@ -4,9 +4,18 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import data from "./metadata/unified.json";
+import ChatModule from "./Chat/chatModule";
 
 export default function ControlledAccordions() {
+
+    let class1Data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
+    let class2Data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
+    let class3Data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
+    
+
     const [expanded, setExpanded] = React.useState(false);
+    const classData = data["ui"]['data'];
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -23,16 +32,21 @@ export default function ControlledAccordions() {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                 >
-                    <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                    <Typography sx={{ width: "33%", flexShrink: 0, textDecoration: 'underline' }}>
                         Assignments
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
-                        Nulla facilisi. Phasellus sollicitudin nulla et quam
-                        mattis feugiat. Aliquam eget maximus est, id dignissim
-                        quam.
-                    </Typography>
+                    {classData.map((item, i) => {
+                        return (
+                            item.type === "assignment" && (
+                                <ul key={i}>
+                                    <Typography>{item.title}</Typography>
+                                    <Typography sx={{color: 'text.secondary' }}>Due: {item.end_or_due}</Typography>
+                                </ul>
+                            )
+                        );
+                    })}
                 </AccordionDetails>
             </Accordion>
 
@@ -45,7 +59,7 @@ export default function ControlledAccordions() {
                     aria-controls="panel2bh-content"
                     id="panel2bh-header"
                 >
-                    <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                    <Typography sx={{ width: "33%", flexShrink: 0, textDecoration: 'underline' }}>
                         Announcements
                     </Typography>
                 </AccordionSummary>
@@ -67,16 +81,12 @@ export default function ControlledAccordions() {
                     aria-controls="panel3bh-content"
                     id="panel3bh-header"
                 >
-                    <Typography sx={{ width: "33%", flexShrink: 0 }}>
+                    <Typography sx={{ width: "33%", flexShrink: 0, textDecoration: 'underline' }}>
                         Chat
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
-                        Nunc vitae orci ultricies, auctor nunc in, volutpat
-                        nisl. Integer sit amet egestas eros, vitae egestas
-                        augue. Duis vel est augue.
-                    </Typography>
+                    <ChatModule data={class1Data} />
                 </AccordionDetails>
             </Accordion>
         </div>
