@@ -2,7 +2,7 @@
 import {useRef, useState} from 'react';
 
 
-function ChatModule(data) {
+function ChatModule({data}) {
 
     const [chatData, setData] = useState(data);
 

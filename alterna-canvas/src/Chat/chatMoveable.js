@@ -1,6 +1,5 @@
 // import { ReactNode } from "react";
 import Draggable from "react-draggable";
-import {useRef, useState} from 'react';
 import ChatModule from './chatModule';
 
 
@@ -50,7 +49,7 @@ function ChatMoveable() {
                     <button style={{ float: "right" }}>X</button>
                 </div>
                 
-                <ChatModule chatData={data}/>
+                <ChatModule data={data}/>
 
             </div>
         </Draggable>
