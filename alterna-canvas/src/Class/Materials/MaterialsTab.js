@@ -1,18 +1,21 @@
 import * as React from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Box from "@mui/material/Box";
+
 import Button from "@mui/material/Button";
 
 import { useNavigate } from "react-router-dom";
 
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+
 export default function MaterialsTab({ data }) {
     const navigate = useNavigate();
     const types = [
-        "assignments",
+        "assignment",
         "tutorial",
         "inclass",
         "lecture",
@@ -36,64 +39,86 @@ export default function MaterialsTab({ data }) {
     }
 
     return (
-        <>
-            <Box sx={{ display: "flex" }}>
-                <Typography
-                    sx={{
-                        width: "40%",
-                        flexShrink: 0,
-                        display: "flex",
-                        fontSize: "1.5em",
-                    }}
-                >
-                    Material
-                </Typography>
-                <Typography sx={{ display: "inline", fontSize: "1.5em" }}>
-                    Type
-                </Typography>
-            </Box>
-            <hr style={{ color: "#e00122" }} />
-            <Box sx={{ maxHeight: "600px", overflowY: "auto" }}>
-                {materials.map((item, i) => {
-                    if (item.type === "module") {
+        <TableContainer component={Paper} sx={{ maxHeight: "700px" }}>
+            <Table stickyHeader sx={{ minWidth: "650px" }}>
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Name</TableCell>
+                        <TableCell align="right">Type</TableCell>
+                        <TableCell align="right">Start/Posted</TableCell>
+                        <TableCell align="right">End/Due</TableCell>
+                        <TableCell align="right">Points</TableCell>
+                        <TableCell align="right">Module</TableCell>
+                        <TableCell align="right">Link</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {materials.map((item, i) => {
+                        if (item.type === "module") {
+                            return (
+                                <TableRow
+                                    key={i}
+                                    sx={{
+                                        backgroundColor: "lightgray",
+                                        "&:last-child td, &:last-child th": {
+                                            border: 0,
+                                        },
+                                    }}
+                                >
+                                    <TableCell component="th" scope="row">
+                                        {item.title}
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        {item.type}
+                                    </TableCell>
+                                    <TableCell align="right"></TableCell>
+                                    <TableCell align="right"></TableCell>
+                                    <TableCell align="right"></TableCell>
+                                    <TableCell align="right">
+                                        {item.module}
+                                    </TableCell>
+                                    <TableCell align="right"></TableCell>
+                                </TableRow>
+                            );
+                        }
                         return (
-                            <Accordion key={i} disabled={true}>
-                                <AccordionSummary>
-                                    <Typography
-                                        sx={{ width: "40%", flexShrink: 0 }}
-                                    >
-                                        {item.name} - {item.title}
-                                    </Typography>
-                                    <Typography>Module</Typography>
-                                </AccordionSummary>
-                            </Accordion>
-                        );
-                    }
-                    return (
-                        <Accordion key={i}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                                <Typography
-                                    sx={{ width: "41%", flexShrink: 0 }}
-                                >
+                            <TableRow
+                                key={i}
+                                sx={{
+                                    "&:last-child td, &:last-child th": {
+                                        border: 0,
+                                    },
+                                }}
+                            >
+                                <TableCell component="th" scope="row">
                                     {item.title}
-                                </Typography>
-                                <Typography>{item.type}</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography>
-                                    Posted: {item.start_or_posted}
-                                </Typography>
-                                <Button
-                                    variant="outlined"
-                                    onClick={() => viewItem(item.index)}
-                                >
-                                    View Item Page
-                                </Button>
-                            </AccordionDetails>
-                        </Accordion>
-                    );
-                })}
-            </Box>
-        </>
+                                </TableCell>
+                                <TableCell align="right">{item.type}</TableCell>
+                                <TableCell align="right">
+                                    {item.start_or_posted}
+                                </TableCell>
+                                <TableCell align="right">
+                                    {item.end_or_due}
+                                </TableCell>
+                                <TableCell align="right">
+                                    {item.points}
+                                </TableCell>
+                                <TableCell align="right">
+                                    {item.module}
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Button
+                                        // variant="outlined"
+                                        onClick={() => viewItem(item.index)}
+                                    >
+                                        View Page
+                                    </Button>
+                                </TableCell>
+                            </TableRow>
+                        );
+                    })}
+                </TableBody>
+            </Table>
+        </TableContainer>
     );
 }
