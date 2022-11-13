@@ -72,14 +72,13 @@ function ViewButton({ path, itemName }) {
             </Button>
             <Dialog
                 fullWidth={true}
-                maxWidth={"lg"}
+                maxWidth={"xl"}
                 open={open}
                 onClose={handleClose}
                 scroll={"paper"}
             >
                 <DialogTitle>Previewing "{itemName}"</DialogTitle>
-                <DialogContent> {path} asdf</DialogContent>
-                <Box sx={{ padding: `1em`, height: `500px` }}>
+                <Box sx={{ padding: `1em`, height: `600px` }}>
                     <iframe
                         title="filePreview"
                         src={path}
@@ -255,7 +254,10 @@ export default function ItemPage() {
                                 <Typography>
                                     Points: {itemData.points}
                                 </Typography>
-                                <Stack direction="row" spacing={1}>
+                                <Stack
+                                    direction={{ sm: "column", md: "row" }}
+                                    spacing={{ xs: 2, sm: 1 }}
+                                >
                                     <ViewButton
                                         path={url}
                                         itemName={itemData.title}
@@ -300,12 +302,52 @@ export default function ItemPage() {
                         )}
                         {itemData.type === "lecture" && (
                             <>
-                                <Typography>File</Typography>
+                                <Typography variant="h4">
+                                    Lecture - {itemData.title}
+                                </Typography>
+                                <hr style={{ color: "#e00122" }} />
+                                <Typography>
+                                    Date: {itemData.start_or_posted}
+                                </Typography>
+                                <Typography>
+                                    Points: {itemData.points} (Participation)
+                                </Typography>
+                                <Stack direction="row" spacing={1}>
+                                    <DownloadButton
+                                        path={url}
+                                        fileName={itemData.name}
+                                    />
+                                </Stack>
                             </>
                         )}
                         {itemData.type === "na" && (
                             <>
-                                <Typography>Tutorial</Typography>
+                                <Typography variant="h4">
+                                    {itemData.title}
+                                </Typography>
+                                <hr style={{ color: "#e00122" }} />
+                                <Typography>
+                                    Assigned: {itemData.start_or_posted}
+                                </Typography>
+                                <Typography>
+                                    Due: {itemData.end_or_due} 11:59PM
+                                </Typography>
+                                <Stack
+                                    direction={{ sm: "column", md: "row" }}
+                                    spacing={{ xs: 2, sm: 1 }}
+                                >
+                                    <ViewButton
+                                        path={url}
+                                        itemName={itemData.title}
+                                    />
+                                    <DownloadButton
+                                        path={url}
+                                        fileName={itemData.name}
+                                    />
+                                    <SubmitAssignmentButton
+                                        onSubmission={handleSubmission}
+                                    />
+                                </Stack>
                             </>
                         )}
                     </Box>
