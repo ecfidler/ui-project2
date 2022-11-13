@@ -10,11 +10,14 @@ import Stack from "@mui/material/Stack";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-// import DialogActions from "@mui/material/DialogActions";
+import DialogActions from "@mui/material/DialogActions";
 // import DialogContentText from "@mui/material/DialogContentText";
 
 import DownloadIcon from "@mui/icons-material/Download";
 import PreviewIcon from "@mui/icons-material/Preview";
+import UploadFileIcon from "@mui/icons-material/UploadFile";
+import CheckIcon from "@mui/icons-material/Check";
+import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 
 import data from "../../metadata/unified.json";
 
@@ -92,6 +95,114 @@ function ViewButton({ path, itemName }) {
     );
 }
 
+function SubmitAssignmentButton({ onSubmission }) {
+    const [open, setOpen] = React.useState(false);
+    const [attached, setAttached] = React.useState(false);
+    // const [scroll, setScroll] = React.useState("paper");
+
+    const handleClickOpen = () => {
+        setOpen(true);
+        // setScroll("paper");
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleSubmit = () => {
+        if (attached) {
+            onSubmission();
+            setOpen(false);
+        }
+    };
+
+    const handleAttach = () => {
+        setAttached(true);
+    };
+
+    return (
+        <>
+            <Button
+                variant="contained"
+                size="medium"
+                onClick={handleClickOpen}
+                startIcon={<UploadFileIcon />}
+            >
+                Submit
+            </Button>
+            <Dialog
+                fullWidth={true}
+                maxWidth={"sm"}
+                open={open}
+                onClose={handleClose}
+                scroll={"paper"}
+            >
+                <DialogTitle>Submit Assignment</DialogTitle>
+                <DialogContent>
+                    <input type="file" onChange={handleAttach}></input>
+                </DialogContent>
+                <DialogActions>
+                    <Button
+                        variant="contained"
+                        size="small"
+                        onClick={handleSubmit}
+                        startIcon={<UploadFileIcon />}
+                    >
+                        Submit
+                    </Button>
+                    <Button
+                        variant="contained"
+                        size="small"
+                        onClick={handleClose}
+                    >
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
+        </>
+    );
+}
+
+function SubmittedStatus({ status, late = false }) {
+    if (status) {
+        return (
+            <Typography
+                sx={{
+                    verticalAlign: "baseline",
+                    display: "inline-flex",
+                    color: "green",
+                }}
+            >
+                Submitted <CheckIcon fontSize="small" />
+            </Typography>
+        );
+    } else if (status && late) {
+        return (
+            <Typography
+                sx={{
+                    verticalAlign: "baseline",
+                    display: "inline-flex",
+                    color: "orange",
+                }}
+            >
+                Submitted <CheckIcon fontSize="small" color="orange" /> (Late)
+            </Typography>
+        );
+    } else {
+        return (
+            <Typography
+                sx={{
+                    verticalAlign: "baseline",
+                    display: "inline-flex",
+                    color: "red",
+                }}
+            >
+                Submitted <DoNotDisturbIcon fontSize="small" />
+            </Typography>
+        );
+    }
+}
+
 export default function ItemPage() {
     const { name, index } = useParams();
     const navigate = useNavigate();
@@ -99,8 +210,16 @@ export default function ItemPage() {
     const itemData = data[name].data[index];
     const url = `${process.env.PUBLIC_URL}/course-data/${name}/${itemData.folder}/${itemData.name}`;
 
+    const [submitted, setSubmitted] = React.useState(
+        itemData?.submitted ? true : false
+    );
+
     function backButton() {
         navigate(-1);
+    }
+
+    function handleSubmission() {
+        setSubmitted(true);
     }
 
     return (
@@ -120,7 +239,38 @@ export default function ItemPage() {
                             boxShadow: `0px 0px 10px`,
                         }}
                     >
-                        {(itemData.type === "assignment" ||
+                        {itemData.type === "assignment" && (
+                            <>
+                                <Typography variant="h4">
+                                    {itemData.title}
+                                </Typography>
+                                <hr style={{ color: "#e00122" }} />
+                                <Typography>
+                                    Assigned: {itemData.start_or_posted}
+                                </Typography>
+                                <Typography>
+                                    Due: {itemData.end_or_due} 11:59PM
+                                </Typography>
+                                <SubmittedStatus status={submitted} />
+                                <Typography>
+                                    Points: {itemData.points}
+                                </Typography>
+                                <Stack direction="row" spacing={1}>
+                                    <ViewButton
+                                        path={url}
+                                        itemName={itemData.title}
+                                    />
+                                    <DownloadButton
+                                        path={url}
+                                        fileName={itemData.name}
+                                    />
+                                    <SubmitAssignmentButton
+                                        onSubmission={handleSubmission}
+                                    />
+                                </Stack>
+                            </>
+                        )}
+                        {(itemData.type === "tutorial" ||
                             itemData.type === "inclass") && (
                             <>
                                 <Typography variant="h4">
@@ -134,7 +284,7 @@ export default function ItemPage() {
                                     Due: {itemData.end_or_due} 11:59PM
                                 </Typography>
                                 <Typography>
-                                    Points: {itemData.points}
+                                    Points: {itemData.points} (Participation)
                                 </Typography>
                                 <Stack direction="row" spacing={1}>
                                     <ViewButton
@@ -148,8 +298,7 @@ export default function ItemPage() {
                                 </Stack>
                             </>
                         )}
-                        {(itemData.type === "lecture" ||
-                            itemData.type === "tutorial") && (
+                        {itemData.type === "lecture" && (
                             <>
                                 <Typography>File</Typography>
                             </>
