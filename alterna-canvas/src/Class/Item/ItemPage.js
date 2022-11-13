@@ -1,51 +1,26 @@
 import * as React from "react";
 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
+import {
+    Typography,
+    Box,
+    Button,
+    Stack,
+    Dialog,
+    DialogContent,
+    DialogTitle,
+    DialogActions,
+} from "@mui/material";
 
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogActions from "@mui/material/DialogActions";
-// import DialogContentText from "@mui/material/DialogContentText";
-
-import DownloadIcon from "@mui/icons-material/Download";
-import PreviewIcon from "@mui/icons-material/Preview";
-import UploadFileIcon from "@mui/icons-material/UploadFile";
-import CheckIcon from "@mui/icons-material/Check";
-import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
+import { Preview, UploadFile, Check, DoNotDisturb } from "@mui/icons-material/";
 
 import data from "../../metadata/unified.json";
 
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../theme";
 
-import { useNavigate } from "react-router-dom";
-
-function DownloadButton({ path, fileName }) {
-    const onDownload = () => {
-        const link = document.createElement("a");
-        link.download = fileName;
-        link.href = path;
-        link.click();
-        console.log(link.href);
-    };
-    // console.log(path);
-    return (
-        <Button
-            variant="contained"
-            size="large"
-            onClick={onDownload}
-            startIcon={<DownloadIcon />}
-        >
-            Download {fileName}
-        </Button>
-    );
-}
+import DownloadButton from "./DownloadButton";
 
 function ViewButton({ path, itemName }) {
     const [open, setOpen] = React.useState(false);
@@ -66,7 +41,7 @@ function ViewButton({ path, itemName }) {
                 variant="contained"
                 size="large"
                 onClick={handleClickOpen}
-                startIcon={<PreviewIcon />}
+                startIcon={<Preview />}
             >
                 Preview Item
             </Button>
@@ -125,7 +100,7 @@ function SubmitAssignmentButton({ onSubmission }) {
                 variant="contained"
                 size="medium"
                 onClick={handleClickOpen}
-                startIcon={<UploadFileIcon />}
+                startIcon={<UploadFile />}
             >
                 Submit
             </Button>
@@ -145,7 +120,7 @@ function SubmitAssignmentButton({ onSubmission }) {
                         variant="contained"
                         size="small"
                         onClick={handleSubmit}
-                        startIcon={<UploadFileIcon />}
+                        startIcon={<UploadFile />}
                     >
                         Submit
                     </Button>
@@ -172,7 +147,7 @@ function SubmittedStatus({ status, late = false }) {
                     color: "green",
                 }}
             >
-                Submitted <CheckIcon fontSize="small" />
+                Submitted <Check fontSize="small" />
             </Typography>
         );
     } else if (status && late) {
@@ -184,7 +159,7 @@ function SubmittedStatus({ status, late = false }) {
                     color: "orange",
                 }}
             >
-                Submitted <CheckIcon fontSize="small" color="orange" /> (Late)
+                Submitted <Check fontSize="small" color="orange" /> (Late)
             </Typography>
         );
     } else {
@@ -196,7 +171,7 @@ function SubmittedStatus({ status, late = false }) {
                     color: "red",
                 }}
             >
-                Submitted <DoNotDisturbIcon fontSize="small" />
+                Submitted <DoNotDisturb fontSize="small" />
             </Typography>
         );
     }

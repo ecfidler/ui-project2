@@ -1,11 +1,15 @@
 import * as React from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+
+import {
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
+    Typography,
+    Box,
+    Button,
+} from "@mui/material/";
+
+import { ExpandMore } from "@mui/icons-material";
 
 import { useNavigate } from "react-router-dom";
 
@@ -62,7 +66,7 @@ export default function AssignmentsTab({ data }) {
             {assignments.map((item, i) => {
                 return (
                     <Accordion key={i}>
-                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                        <AccordionSummary expandIcon={<ExpandMore />}>
                             <Typography sx={{ width: "41%", flexShrink: 0 }}>
                                 {item.title}
                             </Typography>

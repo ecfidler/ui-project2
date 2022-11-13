@@ -1,23 +1,19 @@
 import * as React from "react";
 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-import Box from "@mui/material/Box";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Button from "@mui/material/Button";
-
-import { TabPanel, a11yProps } from "./TabPanel";
+import { Box, Tabs, Tab, Button } from "@mui/material";
 
 import data from "../metadata/unified.json";
+
+import { TabPanel, a11yProps } from "./TabPanel";
 import AssignmentsTab from "./Assignments/AssignmentsTab";
 import AnnouncementsTab from "./Announcements/AnnouncementsTab";
 import MaterialsTab from "./Materials/MaterialsTab";
+import SyllabusTab from "./Syllabus/SyllabusTab";
 
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
-
-import { useNavigate } from "react-router-dom";
 
 function ClassPage() {
     const navigate = useNavigate();
@@ -25,6 +21,7 @@ function ClassPage() {
     const [value, setValue] = React.useState(0);
     const { name } = useParams();
     const classData = data[name];
+    const syllabusPath = `${process.env.PUBLIC_URL}/course-data/${name}/course_info/syllabus.html`;
 
     const handleTabChange = (event, newValue) => {
         setValue(newValue);
@@ -77,7 +74,12 @@ function ClassPage() {
                         <TabPanel value={value} index={3}>
                             <MaterialsTab data={classData.data} />
                         </TabPanel>
-                        <TabPanel value={value} index={4}></TabPanel>
+                        <TabPanel value={value} index={4}>
+                            <SyllabusTab
+                                className={classData.name}
+                                path={syllabusPath}
+                            />
+                        </TabPanel>
                         <TabPanel value={value} index={5}></TabPanel>
                     </Box>
                 </Box>
