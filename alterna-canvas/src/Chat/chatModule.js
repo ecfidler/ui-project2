@@ -1,6 +1,11 @@
 
 import { maxHeight } from '@mui/system';
 import {useRef, useState} from 'react';
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+
+import PostAddIcon from '@mui/icons-material/PostAdd';
+import SendIcon from '@mui/icons-material/Send';
 
 
 function ChatModule({data}) {
@@ -20,12 +25,13 @@ function ChatModule({data}) {
 
     const updateChatWindow = () => {
         let tempText = inputRef.current.value;
+        console.log(inputRef.current.value)
         if (tempText != "") {
 
             let msg = {user:"Me", avatar:null, content:tempText, file:null};
             setData([...chatData, msg]);
 
-            // console.log(tempText);
+            console.log(tempText);
             inputRef.current.value = ""; // reset text field
             // console.log(chatData)
             // bottom.current.scrollIntoView();
@@ -60,22 +66,52 @@ function ChatModule({data}) {
             <div
                 style={{
                     width: "100%",
-                    height: "10%",
-                    maxHeight:"50px",
-                    minHeight:"20px",
+                    // height: "10%",
+                    height:"50px",
+                    // minHeight:"20px",
                     backgroundColor: "silver",
                     color: "white",
                     textAlign: "left",
                     borderRadius: "2px",
                     position: "absolute",
                     bottom: "0",
-                    
                 }}
             >
-                <button style={{ float: "left-middle" }}>+</button>
+                
+                {/* <button style={{ float: "left-middle" }}>+</button> */}
+                <Button
+                    variant="contained"
+                    size="large"
+                    // onClick={hideMove}
+                    // startIcon={}
+                    style={{backgroundColor:"grey", float:"left-middle", margin:"5px"}}
+                    >
+                        <PostAddIcon />
+                </Button>
                 {/* <input type="file" name="input-file" style={{ float: "left-middle" }}>+</input> */}
-                <input type="text" name="input-text" placeholder="Text" onKeyPress={(event) => clickPress(event)} ref={inputRef} style={{width:"60%", display:"inline"}}></input>
-                <button style={{ float: "right-middle" }} onClick={event => updateChatWindow()}>-></button>
+                <input type="text" name="input-text" placeholder="Text" onKeyPress={(event) => clickPress(event)} ref={inputRef} style={{width:"55%", display:"inline"}}></input>
+                {/* <button style={{ float: "right-middle" }} onClick={event => updateChatWindow()}>-></button> */}
+                
+                {/* <TextField 
+                    id="outlined-basic" 
+                    variant="outlined" 
+                    size='small' 
+                    sx={{margin:"6px"}} 
+                    ref={inputRef} 
+                    placeholder="Text" 
+                    onKeyPress={(event) => clickPress(event)}
+                    // value={words}
+                    // onChange={handleStuff}
+                /> */}
+                <Button
+                    variant="contained"
+                    size="large"
+                    onClick={updateChatWindow}
+                    // startIcon={}
+                    style={{backgroundColor:"grey", float:"right-middle", margin:"5px"}}
+                    >
+                        <SendIcon />
+                </Button>
             </div>
         </div>
             

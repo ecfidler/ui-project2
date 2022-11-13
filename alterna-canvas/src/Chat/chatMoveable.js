@@ -5,11 +5,14 @@ import ChatModule from './chatModule';
 import Button from "@mui/material/Button";
 import {useRef, useState} from 'react';
 
+import CloseIcon from '@mui/icons-material/Close';
 
-function ChatMoveable() {
+
+function ChatMoveable() { //{title, data}
 
     let data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
-    
+    let title = "piss"
+
     const moveable = useRef(null);
     const bubble = useRef(null);
 
@@ -26,14 +29,15 @@ function ChatMoveable() {
     return (
         <div>
             <Button
-            variant="contained"
-            size="large"
-            onClick={hideBubble}
-            // startIcon={<DownloadIcon />}
-            ref={bubble}
-        >
-           Chat
-        </Button>
+                variant="contained"
+                size="large"
+                onClick={hideBubble}
+                // startIcon={<DownloadIcon />}
+                ref={bubble}
+                style={{backgroundColor:"red", margin:"10px", position:"fixed", bottom:"10px", right:"10px"}}
+                >
+                    Chat
+            </Button>
         {/* <div ref={bubble} style={{backgroundColor:"red", color:"white", borderRadius:"10px", width:"100px", float:"left"}} onclick={event => hideBubble()}>Chat</div> */}
 
         <Draggable handle="#handle" >
@@ -50,6 +54,7 @@ function ChatMoveable() {
                     minHeight:"300px",
                     minWidth:"200px",
                     display:"none",
+                    margin:"10px"
                 }}
                 ref={moveable}
             >
@@ -57,9 +62,9 @@ function ChatMoveable() {
                     id="handle"
                     style={{
                         width: "100%",
-                        height: "10%",
-                        maxHeight:"50px",
-                        minHeight:"20px",
+                        // height: "10%",
+                        height:"50px",
+                        // minHeight:"20px",
                         backgroundColor: "red",
                         color: "white",
                         textAlign: "left",
@@ -74,9 +79,19 @@ function ChatMoveable() {
                             display: "inline",
                         }}
                     >
-                        Mysc words as a title
+                        {title}
                     </h1>
-                    <button style={{ float: "right" }}  onClick={event => hideMove()}>X</button>
+
+                    <Button
+                        variant="contained"
+                        size="large"
+                        onClick={hideMove}
+                        // startIcon={}
+                        style={{backgroundColor:"red", float:"right", margin:"5px"}}
+                        >
+                            <CloseIcon />
+                    </Button>
+                    {/* <button style={{ float: "right" }}  onClick={event => hideMove()}>X</button> */}
                 </div>
                 
                 <ChatModule data={data}/>
