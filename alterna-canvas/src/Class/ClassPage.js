@@ -21,9 +21,13 @@ function ClassPage() {
     const [value, setValue] = React.useState(0);
     const { name } = useParams();
     const classData = data[name];
+
+    const syllabusItem = classData.data.find(
+        (item) => item.type === "syllabus"
+    );
     const syllabusPath = `${process.env.PUBLIC_URL}/course-data/${name}/course_info/syllabus.html`;
 
-    const handleTabChange = (event, newValue) => {
+    const handleTabChange = (_, newValue) => {
         setValue(newValue);
     };
 
@@ -76,11 +80,17 @@ function ClassPage() {
                         </TabPanel>
                         <TabPanel value={value} index={4}>
                             <SyllabusTab
-                                className={classData.name}
+                                className={classData.className.replace(
+                                    " ",
+                                    "_"
+                                )}
                                 path={syllabusPath}
+                                data={syllabusItem}
                             />
                         </TabPanel>
-                        <TabPanel value={value} index={5}></TabPanel>
+                        <TabPanel value={value} index={5}>
+                            Zoom integration not implemented
+                        </TabPanel>
                     </Box>
                 </Box>
             </ThemeProvider>

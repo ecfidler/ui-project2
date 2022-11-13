@@ -1,10 +1,11 @@
 import * as React from "react";
 
-import { Typography, Box } from "@mui/material";
+import { Typography, Box, Stack } from "@mui/material";
 
 import DownloadButton from "../Item/DownloadButton";
+import QuestionButtons from "../Questions/QuestionButtons";
 
-export default function SyllabusTab({ className, path }) {
+export default function SyllabusTab({ className, path, data }) {
     return (
         <>
             <Typography
@@ -15,11 +16,8 @@ export default function SyllabusTab({ className, path }) {
                 Syllabus
             </Typography>
             <hr style={{ color: "#e00122" }} />
-            <DownloadButton
-                path={path}
-                fileName={`${className}_syllabus.html`}
-            />
-            <Box sx={{ padding: `1em`, height: `750px` }}>
+
+            <Box sx={{ padding: `1em`, height: `600px` }}>
                 <iframe
                     title="filePreview"
                     src={path}
@@ -30,6 +28,17 @@ export default function SyllabusTab({ className, path }) {
                     }}
                 />
             </Box>
+            <Stack
+                sx={{ marginLeft: "1em" }}
+                direction={{ sm: "column", md: "row" }}
+                spacing={{ xs: 2, sm: 1 }}
+            >
+                <DownloadButton
+                    path={path}
+                    fileName={`${className}_syllabus.html`}
+                />
+                <QuestionButtons questionData={data.questions} />
+            </Stack>
         </>
     );
 }

@@ -21,6 +21,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../theme";
 
 import DownloadButton from "./DownloadButton";
+import QuestionButtons from "../Questions/ViewQuestionsButton";
 
 function ViewButton({ path, itemName }) {
     const [open, setOpen] = React.useState(false);
@@ -321,6 +322,9 @@ export default function ItemPage() {
                                     />
                                     <SubmitAssignmentButton
                                         onSubmission={handleSubmission}
+                                    />
+                                    <QuestionButtons
+                                        questionData={itemData.questions}
                                     />
                                 </Stack>
                             </>
