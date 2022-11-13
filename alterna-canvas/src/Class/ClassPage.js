@@ -11,6 +11,8 @@ import { TabPanel, a11yProps } from "./TabPanel";
 
 import data from "../metadata/unified.json";
 import AssignmentsTab from "./Assignments/AssignmentsTab";
+import AnnouncementsTab from "./Announcements/AnnouncementsTab";
+import MaterialsTab from "./Materials/MaterialsTab";
 
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
@@ -35,14 +37,15 @@ function ClassPage() {
     return (
         <div className="class-page" style={{ margin: "0 5% 0 5%" }}>
             <ThemeProvider theme={theme}>
-                <h1>{classData.className}</h1>
                 <Button
-                    sx={{ margin: `0 auto 1em 3.5em` }}
+                    sx={{ marginTop: `1em` }}
                     variant="contained"
                     onClick={backButton}
                 >
                     Back to Dashboard
                 </Button>
+                <h1>{classData.className}</h1>
+
                 <Box sx={{ display: "flex", flexDirection: "row" }}>
                     <Tabs
                         orientation="vertical"
@@ -67,9 +70,13 @@ function ClassPage() {
                         <TabPanel value={value} index={0}>
                             <AssignmentsTab data={classData.data} />
                         </TabPanel>
-                        <TabPanel value={value} index={1}></TabPanel>
+                        <TabPanel value={value} index={1}>
+                            <AnnouncementsTab data={classData.data} />
+                        </TabPanel>
                         <TabPanel value={value} index={2}></TabPanel>
-                        <TabPanel value={value} index={3}></TabPanel>
+                        <TabPanel value={value} index={3}>
+                            <MaterialsTab data={classData.data} />
+                        </TabPanel>
                         <TabPanel value={value} index={4}></TabPanel>
                         <TabPanel value={value} index={5}></TabPanel>
                     </Box>
