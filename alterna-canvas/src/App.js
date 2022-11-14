@@ -13,10 +13,15 @@ function App() {
             </h1>
             <Stack direction="row" spacing={2}>
                 <ClassInfo classLink="/class/ui" className={"ui"} />
-                <ClassInfo classLink="/class/senior_design" className={"senior_design"} />
-                <ClassInfo classLink="/class/computer_graphics" className={"computer_graphics"} />
+                <ClassInfo
+                    classLink="/class/senior-design"
+                    className={"senior_design"}
+                />
+                <ClassInfo
+                    classLink="/class/computer-graphics"
+                    className={"computer_graphics"}
+                />
             </Stack>
-            
         </div>
     );
 }
