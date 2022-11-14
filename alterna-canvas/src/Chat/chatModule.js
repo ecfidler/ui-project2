@@ -4,8 +4,14 @@ import {useRef, useState} from 'react';
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-import PostAddIcon from '@mui/icons-material/PostAdd';
+// import PostAddIcon from '@mui/icons-material/PostAdd';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
 import SendIcon from '@mui/icons-material/Send';
+
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "../theme";
+import DownloadButton from "../Class/Item/DownloadButton";
+
 
 
 function ChatModule({data}) {
@@ -38,7 +44,24 @@ function ChatModule({data}) {
         }
     }
 
+    const handleAttach = (event) => {
+        console.log(event);
 
+        // <Card variant="outlined">{card}</Card>
+                                    
+        let theFile = <ThemeProvider theme={theme}>
+            <DownloadButton
+                path={event.target.value}
+                fileName={event.target.value}
+            />
+        </ThemeProvider>
+
+        let msg = {user:"Me", avatar:null, content:theFile, file:event.target.value};
+        setData([...chatData, msg]);
+
+        // console.log(tempText);
+        // inputRef.current.value = ""; // reset text field
+    };
 
     return (
         <div style={{height:"100%"}}>
@@ -82,12 +105,15 @@ function ChatModule({data}) {
                 <Button
                     variant="contained"
                     size="large"
+                    component="label"
                     // onClick={hideMove}
                     // startIcon={}
                     style={{backgroundColor:"grey", float:"left-middle", margin:"5px"}}
                     >
-                        <PostAddIcon />
+                        <UploadFileIcon />
+                        <input hidden multiple type="file" onChange={handleAttach}/>
                 </Button>
+
                 {/* <input type="file" name="input-file" style={{ float: "left-middle" }}>+</input> */}
                 <input type="text" name="input-text" placeholder="Text" onKeyPress={(event) => clickPress(event)} ref={inputRef} style={{width:"55%", display:"inline"}}></input>
                 {/* <button style={{ float: "right-middle" }} onClick={event => updateChatWindow()}>-></button> */}
