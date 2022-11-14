@@ -649,6 +649,12 @@
                 "title": "Project 1 documentation",
                 "reference": "project1.html,assignment_03.html,07.html"
             }
+        ],
+        "grading_scheme": [
+            {"type": "assignment", "weight": 0.1 },
+            {"type": "participation", "weight": 0.05 },
+            {"type": "project", "weight": 0.75 },
+            {"type": "final_exam", "weight": 0.1 }
         ]
     },
     "senior_design": {
@@ -907,7 +913,12 @@
                 "title": "Project status update",
                 "reference": "na"
             }
-        ] 
+        ],
+        "grading_scheme": [
+            {"type": "assignment", "weight": 0.5 },
+            {"type": "participation", "weight": 0.1 },
+            {"type": "exam", "weight": 0.4 }
+        ]
     },
     "computer_graphics": {
         "className": "Computer Graphics",
@@ -1572,6 +1583,11 @@
             "title": "Midterm exam",
             "reference": "na"
         }
+        ],
+        "grading_scheme": [
+            {"type": "assignment", "weight": 0.5 },
+            {"type": "participation", "weight": 0.1 },
+            {"type": "exam", "weight": 0.4 }
         ]
     }
 }

@@ -11,6 +11,7 @@ import AssignmentsTab from "./Assignments/AssignmentsTab";
 import AnnouncementsTab from "./Announcements/AnnouncementsTab";
 import MaterialsTab from "./Materials/MaterialsTab";
 import SyllabusTab from "./Syllabus/SyllabusTab";
+import GradesTab from "./Grades/GradesTab";
 
 import ChatMovable from "../Chat/chatMoveable";
 
@@ -81,7 +82,7 @@ function ClassPage() {
                         <TabPanel value={value} index={1}>
                             <AnnouncementsTab data={classData.data} />
                         </TabPanel>
-                        <TabPanel value={value} index={2}></TabPanel>
+                        <TabPanel value={value} index={2}><GradesTab data={classData.data} gradeScheme={classData.grading_scheme} /></TabPanel>
                         <TabPanel value={value} index={3}>
                             <MaterialsTab data={classData.data} />
                         </TabPanel>
