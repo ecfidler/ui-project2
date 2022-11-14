@@ -651,7 +651,7 @@
             }
         ]
     },
-    "senior-design": {
+    "senior_design": {
         "className": "Senior Design",
         "data": [
             {
@@ -909,7 +909,7 @@
             }
         ] 
     },
-    "computer-graphics": {
+    "computer_graphics": {
         "className": "Computer Graphics",
         "data": [
         {
