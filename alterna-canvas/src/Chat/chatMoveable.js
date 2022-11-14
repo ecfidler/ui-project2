@@ -52,7 +52,7 @@ function ChatMoveable({title, data}) {
                     resize: "both",
                     overflow: "hidden",
                     minHeight:"300px",
-                    minWidth:"200px",
+                    minWidth:"370px",
                     display:"none",
                     margin:"10px"
                 }}
