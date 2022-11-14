@@ -5,31 +5,15 @@ import {
     AccordionSummary,
     AccordionDetails,
     Typography,
-    Button,
     Box,
 } from "@mui/material";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import { useNavigate } from "react-router-dom";
-
 export default function AnnouncementsTab({ data }) {
-    const navigate = useNavigate();
-
-    const announcements = data
-        .filter((item) => item.type === "announcement")
-        .sort((a, b) => {
-            return (
-                Date.parse(a.start_or_posted) - Date.parse(b.start_or_posted)
-            );
-        });
-    announcements.forEach((a) => {
-        a.index = data.indexOf(a);
+    const announcements = data.sort((a, b) => {
+        return Date.parse(a.post_date) - Date.parse(b.post_date);
     });
-
-    function viewItem(idx) {
-        navigate(`./item/${idx}`);
-    }
 
     return (
         <>
@@ -56,18 +40,11 @@ export default function AnnouncementsTab({ data }) {
                             <Typography sx={{ width: "41%", flexShrink: 0 }}>
                                 {item.title}
                             </Typography>
-                            <Typography>{item.start_or_posted}</Typography>
+                            <Typography>{item.post_date}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography>
-                                Posted: {item.start_or_posted}
-                            </Typography>
-                            <Button
-                                variant="outlined"
-                                onClick={() => viewItem(item.index)}
-                            >
-                                View Announcement
-                            </Button>
+                            <Typography>Posted: {item.post_date}</Typography>
+                            <Typography>{item.content}</Typography>
                         </AccordionDetails>
                     </Accordion>
                 );

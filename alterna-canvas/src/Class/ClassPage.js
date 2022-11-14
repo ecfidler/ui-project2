@@ -2,9 +2,10 @@ import * as React from "react";
 
 import { useParams, useNavigate } from "react-router-dom";
 
-import { Box, Tabs, Tab, Button } from "@mui/material";
+import { Box, Tabs, Tab, Button, Badge } from "@mui/material";
 
 import data from "../metadata/unified.json";
+import announcementData from "../metadata/unifiedAnnouncements.json";
 
 import { TabPanel, a11yProps } from "./TabPanel";
 import AssignmentsTab from "./Assignments/AssignmentsTab";
@@ -19,16 +20,18 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 
 function ClassPage() {
-
     // THIS NEEDS TO BE IN THE DATA
-    let chatdata = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
-
+    let chatdata = [
+        { user: "Etan", avatar: null, content: "Hellow, worlds", file: null },
+        { user: "Me", avatar: null, content: "This sorta wor...", file: null },
+    ];
 
     const navigate = useNavigate();
 
     const [value, setValue] = React.useState(0);
     const { name } = useParams();
     const classData = data[name];
+    const announcements = announcementData[name].data;
 
     const syllabusItem = classData.data.find(
         (item) => item.type === "syllabus"
@@ -69,7 +72,19 @@ function ClassPage() {
                         }}
                     >
                         <Tab label="Assignments" {...a11yProps(0)} />
-                        <Tab label="Announcements" {...a11yProps(1)} />
+
+                        <Tab
+                            label={
+                                <Badge
+                                    badgeContent={announcements.length}
+                                    color={"primary"}
+                                >
+                                    Announcements
+                                </Badge>
+                            }
+                            {...a11yProps(1)}
+                        />
+
                         <Tab label="Grades" {...a11yProps(2)} />
                         <Tab label="Course Materials" {...a11yProps(3)} />
                         <Tab label="Syllabus" {...a11yProps(4)} />
@@ -80,9 +95,14 @@ function ClassPage() {
                             <AssignmentsTab data={classData.data} />
                         </TabPanel>
                         <TabPanel value={value} index={1}>
-                            <AnnouncementsTab data={classData.data} />
+                            <AnnouncementsTab data={announcements} />
                         </TabPanel>
-                        <TabPanel value={value} index={2}><GradesTab data={classData.data} gradeScheme={classData.grading_scheme} /></TabPanel>
+                        <TabPanel value={value} index={2}>
+                            <GradesTab
+                                data={classData.data}
+                                gradeScheme={classData.grading_scheme}
+                            />
+                        </TabPanel>
                         <TabPanel value={value} index={3}>
                             <MaterialsTab data={classData.data} />
                         </TabPanel>
@@ -101,7 +121,7 @@ function ClassPage() {
                         </TabPanel>
                     </Box>
                 </Box>
-                <ChatMovable title={classData.className} data={chatdata}/>
+                <ChatMovable title={classData.className} data={chatdata} />
             </ThemeProvider>
         </div>
     );
