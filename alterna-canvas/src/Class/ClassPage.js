@@ -27,7 +27,6 @@ function ClassPage() {
     const { name } = useParams();
     const classData = data[name];
 
-    // THIS NEEDS TO BE IN THE DATA
     let chatdata = chat[name];
 
     const syllabusItem = classData.data.find(
