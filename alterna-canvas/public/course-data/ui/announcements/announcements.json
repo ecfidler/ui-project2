@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "title": "Syllabus",
+            "content": "the syllabus is posted",
+            "post_date": "8/15/22"
+        },
+        {
+            "title": "Midterms",
+            "content": "There well be no midtersm. Just focus on completing Project 1",
+            "post_date": "9/30/22"
+        },
+        {
+            "title": "Thanksgiving",
+            "content": "There will be no class the Tuesday before Thanksgiving",
+            "post_date": "11/16/22"
+        },
+        {
+            "title": "Finals",
+            "content": "There will be no final for this class. The final project will be the final exam grade",
+            "post_date": "12/1/22"
+        }
+    ]
+}

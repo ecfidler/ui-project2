@@ -3,8 +3,9 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import ControlledAccordions from "./accordian";
 import { useNavigate } from "react-router-dom";
+import { capitalize } from "@mui/material";
 
-export default function ClassInfo({ classLink }) {
+export default function ClassInfo({ classLink, className }) {
     // const [classLink, setClassLink] = React.useState();
     const navigate = useNavigate();
 
@@ -20,12 +21,14 @@ export default function ClassInfo({ classLink }) {
                 style={{
                     backgroundColor: "red",
                     color: "black",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
                 }}
                 onClick={navigateToClass}
             >
-                Success
+                {className}
             </Button>
-            <ControlledAccordions />
+            <ControlledAccordions className={className} />
         </Stack>
     );
 }
