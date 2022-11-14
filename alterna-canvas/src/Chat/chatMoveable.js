@@ -25,7 +25,7 @@ function ChatMoveable({title, data}) {
 
 
     return (
-        <div>
+        <div style={{zIndex:'123456789', position:"absolute"}}>
             <Badge badgeContent={data.length} color={"primary"} ref={bubble} style={{backgroundColor:"red", margin:"10px", position:"fixed", bottom:"10px", right:"10px"}}>
             <Button
                 variant="contained"
