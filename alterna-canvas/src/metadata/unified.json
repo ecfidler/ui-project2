@@ -134,7 +134,7 @@
                 "reference": "na"
             },
             {
-                "name": "project1",
+                "name": "project1.html",
                 "folder": "pages",
                 "type": "na",
                 "grading": "na",
@@ -651,7 +651,7 @@
             }
         ]
     },
-    "senior-design": {
+    "senior_design": {
         "className": "Senior Design",
         "data": [
             {
@@ -909,7 +909,7 @@
             }
         ] 
     },
-    "computer-graphics": {
+    "computer_graphics": {
         "className": "Computer Graphics",
         "data": [
         {

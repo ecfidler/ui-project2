@@ -1,30 +1,40 @@
 import * as React from "react";
 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-import Box from "@mui/material/Box";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Button from "@mui/material/Button";
-
-import { TabPanel, a11yProps } from "./TabPanel";
+import { Box, Tabs, Tab, Button } from "@mui/material";
 
 import data from "../metadata/unified.json";
+
+import { TabPanel, a11yProps } from "./TabPanel";
 import AssignmentsTab from "./Assignments/AssignmentsTab";
+import AnnouncementsTab from "./Announcements/AnnouncementsTab";
+import MaterialsTab from "./Materials/MaterialsTab";
+import SyllabusTab from "./Syllabus/SyllabusTab";
+
+import ChatMovable from "../Chat/chatMoveable";
 
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 
-import { useNavigate } from "react-router-dom";
-
 function ClassPage() {
+
+    // THIS NEEDS TO BE IN THE DATA
+    let chatdata = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
+
+
     const navigate = useNavigate();
 
     const [value, setValue] = React.useState(0);
     const { name } = useParams();
     const classData = data[name];
 
-    const handleTabChange = (event, newValue) => {
+    const syllabusItem = classData.data.find(
+        (item) => item.type === "syllabus"
+    );
+    const syllabusPath = `${process.env.PUBLIC_URL}/course-data/${name}/course_info/syllabus.html`;
+
+    const handleTabChange = (_, newValue) => {
         setValue(newValue);
     };
 
@@ -35,14 +45,15 @@ function ClassPage() {
     return (
         <div className="class-page" style={{ margin: "0 5% 0 5%" }}>
             <ThemeProvider theme={theme}>
-                <h1>{classData.className}</h1>
                 <Button
-                    sx={{ margin: `0 auto 1em 3.5em` }}
+                    sx={{ marginTop: `1em` }}
                     variant="contained"
                     onClick={backButton}
                 >
                     Back to Dashboard
                 </Button>
+                <h1>{classData.className}</h1>
+
                 <Box sx={{ display: "flex", flexDirection: "row" }}>
                     <Tabs
                         orientation="vertical"
@@ -67,14 +78,30 @@ function ClassPage() {
                         <TabPanel value={value} index={0}>
                             <AssignmentsTab data={classData.data} />
                         </TabPanel>
-                        <TabPanel value={value} index={1}></TabPanel>
+                        <TabPanel value={value} index={1}>
+                            <AnnouncementsTab data={classData.data} />
+                        </TabPanel>
                         <TabPanel value={value} index={2}></TabPanel>
-                        <TabPanel value={value} index={3}></TabPanel>
-                        <TabPanel value={value} index={4}></TabPanel>
-                        <TabPanel value={value} index={5}></TabPanel>
+                        <TabPanel value={value} index={3}>
+                            <MaterialsTab data={classData.data} />
+                        </TabPanel>
+                        <TabPanel value={value} index={4}>
+                            <SyllabusTab
+                                className={classData.className.replace(
+                                    " ",
+                                    "_"
+                                )}
+                                path={syllabusPath}
+                                data={syllabusItem}
+                            />
+                        </TabPanel>
+                        <TabPanel value={value} index={5}>
+                            Zoom integration not implemented
+                        </TabPanel>
                     </Box>
                 </Box>
             </ThemeProvider>
+            <ChatMovable title={classData.className} data={chatdata}/>
         </div>
     );
 }

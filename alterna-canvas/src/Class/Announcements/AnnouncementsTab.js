@@ -5,44 +5,30 @@ import {
     AccordionSummary,
     AccordionDetails,
     Typography,
-    Box,
     Button,
-} from "@mui/material/";
+    Box,
+} from "@mui/material";
 
-import { ExpandMore } from "@mui/icons-material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import { useNavigate } from "react-router-dom";
 
-export default function AssignmentsTab({ data }) {
+export default function AnnouncementsTab({ data }) {
     const navigate = useNavigate();
 
-    const assignments = data
-        .filter((item) => item.type === "assignment")
+    const announcements = data
+        .filter((item) => item.type === "announcement")
         .sort((a, b) => {
-            return Date.parse(a.end_or_due) - Date.parse(b.end_or_due);
+            return (
+                Date.parse(a.start_or_posted) - Date.parse(b.start_or_posted)
+            );
         });
-    assignments.forEach((a) => {
+    announcements.forEach((a) => {
         a.index = data.indexOf(a);
     });
-    const date = new Date("9/15/22");
-
-    function howSoonDue(dueDateString) {
-        const dueDate = new Date(dueDateString);
-        const msTilldue = dueDate - date;
-        // all these calculations are in ms, sorry
-        if (msTilldue < 86400000) {
-            return "red";
-        }
-        if (msTilldue < 86400000 * 2) {
-            return "orange";
-        } else {
-            return "green";
-        }
-    }
 
     function viewItem(idx) {
         navigate(`./item/${idx}`);
-        console.log("handled");
     }
 
     return (
@@ -56,39 +42,31 @@ export default function AssignmentsTab({ data }) {
                         fontSize: "1.5em",
                     }}
                 >
-                    Assignment
+                    Announcement
                 </Typography>
                 <Typography sx={{ display: "inline", fontSize: "1.5em" }}>
-                    Due-Date
+                    Posted
                 </Typography>
             </Box>
             <hr style={{ color: "#e00122" }} />
-            {assignments.map((item, i) => {
+            {announcements.map((item, i) => {
                 return (
                     <Accordion key={i}>
-                        <AccordionSummary expandIcon={<ExpandMore />}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                             <Typography sx={{ width: "41%", flexShrink: 0 }}>
                                 {item.title}
                             </Typography>
-                            <Typography
-                                sx={{ color: howSoonDue(item.end_or_due) }}
-                            >
-                                {item.end_or_due}
-                            </Typography>
+                            <Typography>{item.start_or_posted}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <Typography>
-                                Assigned: {item.start_or_posted}
+                                Posted: {item.start_or_posted}
                             </Typography>
-                            <Typography>
-                                Due: {item.end_or_due} 11:59PM
-                            </Typography>
-                            <Typography>Points: {item.points}</Typography>
                             <Button
                                 variant="outlined"
                                 onClick={() => viewItem(item.index)}
                             >
-                                View Assignment
+                                View Announcement
                             </Button>
                         </AccordionDetails>
                     </Accordion>
