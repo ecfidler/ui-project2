@@ -38,7 +38,7 @@ export default function ControlledAccordions({ className }) {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                 >
-                    <Typography sx={{ width: "33%", flexShrink: 0, textDecoration: 'underline' }}>
+                    <Typography sx={{ width: "33%", flexShrink: 0}}>
                         Assignments
                     </Typography>
                 </AccordionSummary>
@@ -65,7 +65,7 @@ export default function ControlledAccordions({ className }) {
                     aria-controls="panel2bh-content"
                     id="panel2bh-header"
                 >
-                    <Typography sx={{ width: "33%", flexShrink: 0, textDecoration: 'underline' }}>
+                    <Typography sx={{ width: "33%", flexShrink: 0}}>
                         Announcements
                     </Typography>
                 </AccordionSummary>
@@ -92,7 +92,7 @@ export default function ControlledAccordions({ className }) {
                     aria-controls="panel3bh-content"
                     id="panel3bh-header"
                 >
-                    <Typography sx={{ width: "33%", flexShrink: 0, textDecoration: 'underline' }}>
+                    <Typography sx={{ width: "33%", flexShrink: 0}}>
                         Chat
                     </Typography>
                 </AccordionSummary>

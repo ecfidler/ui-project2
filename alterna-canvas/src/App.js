@@ -7,9 +7,9 @@ function App() {
         <div className="App">
             <h1
                 className="uc-red"
-                style={{ fontWeight: "700", color: "red", textAlign: "center" }}
+                style={{ fontWeight: "700", color: "#e00122", textAlign: "center"}}
             >
-                Your class List
+                Your Class List
             </h1>
             <Stack direction="row" spacing={2}>
                 <ClassInfo classLink="/class/ui" className={"ui"} />
