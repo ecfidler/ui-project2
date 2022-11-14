@@ -11,9 +11,6 @@ import { Badge } from "@mui/material";
 
 function ChatMoveable({title, data}) {
 
-    // let data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
-    // let title = "piss"
-
     const moveable = useRef(null);
     const bubble = useRef(null);
 
@@ -28,7 +25,7 @@ function ChatMoveable({title, data}) {
 
 
     return (
-        <div>
+        <div style={{zIndex:'123456789', position:"absolute"}}>
             <Badge badgeContent={data.length} color={"primary"} ref={bubble} style={{backgroundColor:"red", margin:"10px", position:"fixed", bottom:"10px", right:"10px"}}>
             <Button
                 variant="contained"

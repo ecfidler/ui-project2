@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Box, Tabs, Tab, Button, Badge } from "@mui/material";
 
 import data from "../metadata/unified.json";
+import chat from "../metadata/chat_data.json";
 import announcementData from "../metadata/unifiedAnnouncements.json";
 
 import { TabPanel, a11yProps } from "./TabPanel";
@@ -20,18 +21,14 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 
 function ClassPage() {
-    // THIS NEEDS TO BE IN THE DATA
-    let chatdata = [
-        { user: "Etan", avatar: null, content: "Hellow, worlds", file: null },
-        { user: "Me", avatar: null, content: "This sorta wor...", file: null },
-    ];
-
     const navigate = useNavigate();
 
     const [value, setValue] = React.useState(0);
     const { name } = useParams();
     const classData = data[name];
     const announcements = announcementData[name].data;
+
+    let chatdata = chat[name];
 
     const syllabusItem = classData.data.find(
         (item) => item.type === "syllabus"

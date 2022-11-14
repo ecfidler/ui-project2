@@ -4,20 +4,20 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 import pagesData from "./metadata/unified.json";
+import chat from "./metadata/chat_data.json";
+
 import announcementsData from "./metadata/unifiedAnnouncements.json";
 import ChatModule from "./Chat/chatModule";
 
 export default function ControlledAccordions({ className }) {
 
-    let class1Data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
-    let class2Data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
-    let class3Data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
-    
-
     const [expanded, setExpanded] = React.useState(false);
     const classData = pagesData[className]['data'];
     const announcements = announcementsData[className]['data'];
+
+    let chatdata = chat[className];
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -38,7 +38,7 @@ export default function ControlledAccordions({ className }) {
                     aria-controls="panel1bh-content"
                     id="panel1bh-header"
                 >
-                    <Typography sx={{ width: "33%", flexShrink: 0, textDecoration: 'underline' }}>
+                    <Typography sx={{ width: "33%", flexShrink: 0}}>
                         Assignments
                     </Typography>
                 </AccordionSummary>
@@ -65,7 +65,7 @@ export default function ControlledAccordions({ className }) {
                     aria-controls="panel2bh-content"
                     id="panel2bh-header"
                 >
-                    <Typography sx={{ width: "33%", flexShrink: 0, textDecoration: 'underline' }}>
+                    <Typography sx={{ width: "33%", flexShrink: 0}}>
                         Announcements
                     </Typography>
                 </AccordionSummary>
@@ -92,12 +92,12 @@ export default function ControlledAccordions({ className }) {
                     aria-controls="panel3bh-content"
                     id="panel3bh-header"
                 >
-                    <Typography sx={{ width: "33%", flexShrink: 0, textDecoration: 'underline' }}>
+                    <Typography sx={{ width: "33%", flexShrink: 0}}>
                         Chat
                     </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <ChatModule data={class1Data} />
+                    <ChatModule data={chatdata} />
                 </AccordionDetails>
             </Accordion>
         </div>

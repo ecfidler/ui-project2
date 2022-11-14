@@ -15,18 +15,19 @@ export default function ClassInfo({ classLink, className }) {
     };
 
     return (
-        <Stack direction="column">
+        <Stack direction="column" style={{margin:"10px"}}>
             <Button
                 variant="contained"
                 style={{
-                    backgroundColor: "red",
-                    color: "black",
+                    backgroundColor: "#e00122",
+                    color: "white",
                     textTransform: "uppercase",
                     fontWeight: "bold",
+                    // textDecoration: 'underline' 
                 }}
                 onClick={navigateToClass}
             >
-                {className}
+                {className.replace('_'," ")}
             </Button>
             <ControlledAccordions className={className} />
         </Stack>

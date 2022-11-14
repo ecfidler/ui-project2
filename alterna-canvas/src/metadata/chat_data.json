@@ -1,0 +1,14 @@
+{
+    "computer_graphics":[
+        {"user":"Nishanth", "avatar":null, "content":"could you share the doc?", "file":null}
+    ],
+    "senior_design":[
+        {"user":"Josh", "avatar":null, "content":"The project will work!", "file":null}, 
+        {"user":"Me", "avatar":null, "content":"Probably.", "file":null},
+        {"user":"Josh", "avatar":null, "content":"It works, easily.", "file":null}
+    ],
+    "ui":[
+        {"user":"Etan", "avatar":null, "content":"Im the best!", "file":null}, 
+        {"user":"Me", "avatar":null, "content":"...", "file":null}
+    ]
+}
