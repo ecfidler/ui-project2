@@ -100,8 +100,8 @@ function ClassPage() {
                         </TabPanel>
                     </Box>
                 </Box>
+                <ChatMovable title={classData.className} data={chatdata}/>
             </ThemeProvider>
-            <ChatMovable title={classData.className} data={chatdata}/>
         </div>
     );
 }
