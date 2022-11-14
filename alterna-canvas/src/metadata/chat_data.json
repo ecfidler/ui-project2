@@ -9,6 +9,7 @@
     ],
     "ui":[
         {"user":"Etan", "avatar":null, "content":"Im the best!", "file":null}, 
-        {"user":"Me", "avatar":null, "content":"...", "file":null}
+        {"user":"Me", "avatar":null, "content":"...", "file":null},
+        {"user":"Josh", "avatar":null, "content":"he realy is", "file":null}
     ]
 }

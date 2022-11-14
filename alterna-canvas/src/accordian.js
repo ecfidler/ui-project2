@@ -96,7 +96,7 @@ export default function ControlledAccordions({ className }) {
                         Chat
                     </Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails style={{padding:"8px 0px 0px"}}>
                     <ChatModule data={chatdata} />
                 </AccordionDetails>
             </Accordion>

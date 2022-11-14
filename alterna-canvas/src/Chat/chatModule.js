@@ -83,7 +83,7 @@ function ChatModule({data}) {
                         
                         // console.log(chatData.at(-1))//.scrollIntoView()
                     }
-                    <span style={{height:"0px"}} ref={bottom}></span>
+                    <span style={{height:"50px"}} ref={bottom}></span>
                 </div>
             </div>
             <div
