@@ -7,6 +7,7 @@ import {useRef, useState} from 'react';
 
 import CloseIcon from '@mui/icons-material/Close';
 
+import { Badge } from "@mui/material";
 
 function ChatMoveable({title, data}) {
 
@@ -28,16 +29,17 @@ function ChatMoveable({title, data}) {
 
     return (
         <div>
+            <Badge badgeContent={data.length} color={"primary"} ref={bubble} style={{backgroundColor:"red", margin:"10px", position:"fixed", bottom:"10px", right:"10px"}}>
             <Button
                 variant="contained"
                 size="large"
                 onClick={hideBubble}
                 // startIcon={<DownloadIcon />}
-                ref={bubble}
                 style={{backgroundColor:"red", margin:"10px", position:"fixed", bottom:"10px", right:"10px"}}
                 >
                     Chat
             </Button>
+            </Badge>
         {/* <div ref={bubble} style={{backgroundColor:"red", color:"white", borderRadius:"10px", width:"100px", float:"left"}} onclick={event => hideBubble()}>Chat</div> */}
 
         <Draggable handle="#handle" >
