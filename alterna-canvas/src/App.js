@@ -12,9 +12,9 @@ function App() {
                 Your class List
             </h1>
             <Stack direction="row" spacing={2}>
-                <ClassInfo classLink="/class/ui" />
-                <ClassInfo classLink="/class/senior-design" />
-                <ClassInfo classLink="/class/computer-graphics" />
+                <ClassInfo classLink="/class/ui" className={"ui"} />
+                <ClassInfo classLink="/class/senior-design" className={"senior-design"} />
+                <ClassInfo classLink="/class/computer-graphics" className={"computer-graphics"} />
             </Stack>
             
         </div>
