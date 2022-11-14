@@ -1,7 +1,6 @@
 import "./App.css";
 import ClassInfo from "./classInfo";
 import Stack from "@mui/material/Stack";
-import ChatMovable from "./Chat/chatMoveable"
 
 function App() {
     return (
@@ -17,8 +16,7 @@ function App() {
                 <ClassInfo classLink="/class/senior-design" />
                 <ClassInfo classLink="/class/computer-graphics" />
             </Stack>
-
-            <ChatMovable />
+            
         </div>
     );
 }

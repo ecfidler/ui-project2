@@ -8,10 +8,10 @@ import {useRef, useState} from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 
 
-function ChatMoveable() { //{title, data}
+function ChatMoveable({title, data}) {
 
-    let data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
-    let title = "piss"
+    // let data = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
+    // let title = "piss"
 
     const moveable = useRef(null);
     const bubble = useRef(null);

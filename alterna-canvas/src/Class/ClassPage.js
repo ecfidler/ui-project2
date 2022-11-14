@@ -12,10 +12,17 @@ import AnnouncementsTab from "./Announcements/AnnouncementsTab";
 import MaterialsTab from "./Materials/MaterialsTab";
 import SyllabusTab from "./Syllabus/SyllabusTab";
 
+import ChatMovable from "../Chat/chatMoveable";
+
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 
 function ClassPage() {
+
+    // THIS NEEDS TO BE IN THE DATA
+    let chatdata = [{user:"Etan", avatar:null, content:"Hellow, worlds", file:null}, {user:"Me", avatar:null, content:"This sorta wor...", file:null}];
+
+
     const navigate = useNavigate();
 
     const [value, setValue] = React.useState(0);
@@ -94,6 +101,7 @@ function ClassPage() {
                     </Box>
                 </Box>
             </ThemeProvider>
+            <ChatMovable title={classData.className} data={chatdata}/>
         </div>
     );
 }
