@@ -11,6 +11,7 @@ import {
     DialogContent,
     DialogTitle,
     DialogActions,
+    TextField,
 } from "@mui/material";
 
 import { Preview, UploadFile, Check, DoNotDisturb } from "@mui/icons-material/";
@@ -115,6 +116,7 @@ function SubmitAssignmentButton({ onSubmission }) {
                 <DialogTitle>Submit Assignment</DialogTitle>
                 <DialogContent>
                     <input type="file" onChange={handleAttach}></input>
+                    <TextField label="Text Submission" multiline minRows={2} />
                 </DialogContent>
                 <DialogActions>
                     <Button
