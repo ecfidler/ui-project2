@@ -247,6 +247,9 @@ export default function ItemPage() {
                                     <SubmitAssignmentButton
                                         onSubmission={handleSubmission}
                                     />
+                                    <QuestionButtons
+                                        questionData={itemData.questions}
+                                    />
                                 </Stack>
                             </>
                         )}
@@ -275,6 +278,9 @@ export default function ItemPage() {
                                         path={url}
                                         fileName={itemData.name}
                                     />
+                                    <QuestionButtons
+                                        questionData={itemData.questions}
+                                    />
                                 </Stack>
                             </>
                         )}
@@ -294,6 +300,9 @@ export default function ItemPage() {
                                     <DownloadButton
                                         path={url}
                                         fileName={itemData.name}
+                                    />
+                                    <QuestionButtons
+                                        questionData={itemData.questions}
                                     />
                                 </Stack>
                             </>

@@ -22,6 +22,9 @@ import { QuestionAnswer } from "@mui/icons-material/";
 // import theme from "../../theme";
 
 export default function ViewQuestionsButton({ questionsData }) {
+    if (!questionsData) {
+        questionsData = [];
+    }
     const [open, setOpen] = React.useState(false);
     // const [questions, setQuestions] = React.useState(questionData);
 
