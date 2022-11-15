@@ -1,5 +1,7 @@
 # ui-project2
 
+Read the documentation here! https://fidl.dev/#/documentation/project2
+
 Project 2: Alterna-Canvas for User Interfaces 6067
 
 Ethan Fidler, Josh Zack, Nishanth Chidambaram
